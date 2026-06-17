@@ -2,54 +2,87 @@
 
 > 过程文档, 位于 `AiKv-Workflow/backup/`. aidb / aikv 仓库内不维护此表.
 
-**当前阶段**: Step 0 — 文档骨架待确认
+**当前阶段**: Step 0 — 文档骨架待创建
+
+**新会话提示词**: 见 [SESSION-PROMPT.md](SESSION-PROMPT.md) (每篇 module 开新对话时复制填空).
+
+**写作顺序 (已确认)**:
+
+- **阶段 1**: aidb + aikv 全部 modules, 按依赖单链 12 步 (见 `design.md`)
+- **阶段 2a**: aidb 根文档汇总 · **阶段 2b**: aikv 根文档汇总
+- **每章**: 流程 0–4; **每步与你讨论确认后再执行下一步** (见 `design.md` 确认门控)
 
 ---
 
 ## Step 0: 文档骨架
 
-- [ ] 用户确认 `design.md` 中的目标文档结构
-- [ ] aidb: 创建 `docs/README.md`, `docs/development.md`, `docs/modules/`
-- [ ] aidb: 创建 `docs/modules/engine.md`, `cluster.md`
-- [ ] aidb: 迁移 `AiKv-Workflow/backup/aidb/docs/observability.md` → `docs/modules/observability.md`
-- [ ] aikv: 创建 `docs/README.md`, `docs/development.md`, `docs/modules/` (5 个 module 文件)
+- [x] 用户确认 `design.md` 中的目标文档结构
+- [x] 用户确认 modules 划分 (engine 拆分, commands 拆分)
+- [x] 用户确认每章流程 (0–4) 与 ISSUES 约定
+- [x] 用户确认 Module Skill 内容格式 (路径不变, 正文按 Skill 标准, 日后仅迁位置)
+- [x] aidb/aikv 旧文档移入 `backup/{aidb,aikv}/`
+- [ ] aidb: 新建根目录文档 (README, ARCHITECTURE, DESIGN, DEPLOYMENT, CHANGELOG, CONTRIBUTING) — 可先占位
+- [ ] aidb: `docs/README.md`, `docs/development.md`
+- [ ] aidb: `docs/modules/` — engine, engine-storage, cluster, backup, observability (5 篇)
+- [ ] aikv: 新建根目录文档 (同上) — 可先占位
+- [ ] aikv: `docs/README.md`, `docs/development.md`
+- [ ] aikv: `docs/modules/` — protocol, server, storage, commands-core, commands-extended, cluster, observability (7 篇)
 
 ---
 
-## Step 1–2: 按章完善
+## 阶段 1: modules (步 1–12, 全部 ✅ 后再进入阶段 2)
 
-### aidb
-
-| 顺序 | 章节 | 状态 | 完成日期 |
-|------|------|------|----------|
-| 1 | `docs/modules/engine.md` | ⬜ 待开始 | |
-| 2 | `docs/modules/cluster.md` | ⬜ 待开始 | |
-| 3 | `docs/modules/observability.md` | ⬜ 待开始 | |
-| 4 | `ARCHITECTURE.md` 总审 | ⬜ 待开始 | |
-| 5 | `DESIGN.md` 总审 | ⬜ 待开始 | |
-| 6 | `DEPLOYMENT.md` 补充 | ⬜ 待开始 | |
-
-### aikv
-
-| 顺序 | 章节 | 状态 | 完成日期 |
-|------|------|------|----------|
-| 1 | `docs/modules/protocol.md` | ⬜ 待开始 | |
-| 2 | `docs/modules/storage.md` | ⬜ 待开始 | |
-| 3 | `docs/modules/commands.md` | ⬜ 待开始 | |
-| 4 | `docs/modules/cluster.md` | ⬜ 待开始 | |
-| 5 | `docs/modules/observability.md` | ⬜ 待开始 | |
-| 6 | `ARCHITECTURE.md` 总审 | ⬜ 待开始 | |
-| 7 | `DESIGN.md` 总审 | ⬜ 待开始 | |
-| 8 | `DEPLOYMENT.md` 补充 | ⬜ 待开始 | |
+| 步 | 仓库 | 章节 | 覆盖 src | 状态 | 完成日期 |
+|----|------|------|----------|------|----------|
+| 1 | aidb | `docs/modules/engine.md` | wal, memtable, db | ⬜ 待开始 | |
+| 2 | aidb | `docs/modules/engine-storage.md` | sstable, compaction, filter, cache, checkpoint | ⬜ 待开始 | |
+| 3 | aikv | `docs/modules/protocol.md` | protocol/* | ⬜ 待开始 | |
+| 4 | aikv | `docs/modules/server.md` | server/* | ⬜ 待开始 | |
+| 5 | aidb | `docs/modules/cluster.md` | cluster/* | ⬜ 待开始 | |
+| 6 | aikv | `docs/modules/storage.md` | storage/* | ⬜ 待开始 | |
+| 7 | aikv | `docs/modules/commands-core.md` | string~router | ⬜ 待开始 | |
+| 8 | aikv | `docs/modules/commands-extended.md` | json~server cmd | ⬜ 待开始 | |
+| 9 | aidb | `docs/modules/backup.md` | backup/* | ⬜ 待开始 | |
+| 10 | aidb | `docs/modules/observability.md` | metrics, monitoring | ⬜ 待开始 | |
+| 11 | aikv | `docs/modules/cluster.md` | cluster/* | ⬜ 待开始 | |
+| 12 | aikv | `docs/modules/observability.md` | slowlog, metrics, info | ⬜ 待开始 | |
 
 状态: ⬜ 待开始 | 🔄 进行中 | ✅ 完成
 
 ---
 
+## 阶段 2a: aidb 汇总 (步 13–18, 阶段 1 全部 ✅ 后)
+
+| 步 | 章节 | 状态 | 完成日期 |
+|----|------|------|----------|
+| 13 | `ARCHITECTURE.md` | ⬜ 待开始 | |
+| 14 | `DESIGN.md` | ⬜ 待开始 | |
+| 15 | `DEPLOYMENT.md` | ⬜ 待开始 | |
+| 16 | `README.md` | ⬜ 待开始 | |
+| 17 | `CONTRIBUTING.md` / `CHANGELOG.md` | ⬜ 待开始 | |
+| 18 | `docs/README.md` (导航) | ⬜ 待开始 | |
+
+`docs/development.md` 可在 Step 0 占位后任意步 1 前完善.
+
+---
+
+## 阶段 2b: aikv 汇总 (步 19–24, 阶段 2a 完成后)
+
+| 步 | 章节 | 状态 | 完成日期 |
+|----|------|------|----------|
+| 19 | `ARCHITECTURE.md` | ⬜ 待开始 | |
+| 20 | `DESIGN.md` | ⬜ 待开始 | |
+| 21 | `DEPLOYMENT.md` | ⬜ 待开始 | |
+| 22 | `README.md` | ⬜ 待开始 | |
+| 23 | `CONTRIBUTING.md` / `CHANGELOG.md` | ⬜ 待开始 | |
+| 24 | `docs/README.md` (导航) | ⬜ 待开始 | |
+
+---
+
 ## Step 3: 验收
 
-- [ ] aidb 文档导航与模块文档验收通过
-- [ ] aikv 文档导航与模块文档验收通过
+- [ ] 阶段 1: 12 篇 modules 全部 ✅
+- [ ] 阶段 2: aidb / aikv 根文档与 `docs/README.md` 全部 ✅
 - [ ] 主观测试: 仅凭新文档可定位功能代码
 
 ---
@@ -62,4 +95,4 @@
 - [ ] 删除 wiqun-kv
 - [ ] 删除 wiqun-factory
 - [ ] 删除 WiQunTools
-- [ ] (可选) 清理 `AiKv-Workflow/backup/archive/` 内已无用的旧文档副本
+- [ ] (可选) 清理 `backup/archive/`
