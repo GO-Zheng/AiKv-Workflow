@@ -2,7 +2,7 @@
 
 > 过程文档, 位于 `AiKv-Workflow/backup/`. aidb / aikv 仓库内不维护此表.
 
-**当前阶段**: 阶段 1 — modules (步 2/12 待开始)
+**当前阶段**: 阶段 1 — modules (步 3/12 待开始)
 
 **新会话提示词**: 见 [SESSION-PROMPT.md](SESSION-PROMPT.md) (每篇 module 开新对话时复制填空).
 
@@ -35,7 +35,7 @@
 | 步 | 仓库 | 章节 | 覆盖 src | 状态 | 完成日期 |
 |----|------|------|----------|------|----------|
 | 1 | aidb | `docs/modules/engine.md` | wal, memtable, db | ✅ 完成 | 2026-06-17 |
-| 2 | aidb | `docs/modules/engine-storage.md` | sstable, compaction, filter, cache, checkpoint | ⬜ 待开始 | |
+| 2 | aidb | `docs/modules/engine-storage.md` | sstable, compaction, filter, cache, checkpoint | ✅ 完成 | 2026-06-17 |
 | 3 | aikv | `docs/modules/protocol.md` | protocol/* | ⬜ 待开始 | |
 | 4 | aikv | `docs/modules/server.md` | server/* | ⬜ 待开始 | |
 | 5 | aidb | `docs/modules/cluster.md` | cluster/* | ⬜ 待开始 | |

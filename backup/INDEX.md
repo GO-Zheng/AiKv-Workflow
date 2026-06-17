@@ -13,7 +13,7 @@
 | 新文档章节 | 状态 | 参考的旧文档 | 处理 | 备注 |
 |------------|------|--------------|------|------|
 | `docs/modules/engine.md` | ✅ | backup/aidb/ARCHITECTURE.md, DESIGN.md; WiQunTools 01-wal, 02-memtable, 04-db-engine, 08-snapshot | 已写 aidb/docs/modules/engine.md | ISSUE-001/002 |
-| `docs/modules/engine-storage.md` | 待开始 | | | `engine/{sstable,compaction,filter,cache,checkpoint}` |
+| `docs/modules/engine-storage.md` | ✅ | backup/aidb/ARCHITECTURE,DESIGN + superpowers specs; WiQunTools 03–07, 13 §checkpoint; oldmain src 对照 | 已写 aidb/docs/modules/engine-storage.md | ISSUE-003/004 closed (doc-only) |
 | `docs/modules/cluster.md` | 待开始 | | | `cluster/*` |
 | `docs/modules/backup.md` | 待开始 | | | `backup/*` |
 | `docs/modules/observability.md` | 待开始 | `backup/aidb/docs/observability.md` | 已移出 aidb | `metrics.rs` + monitoring |
