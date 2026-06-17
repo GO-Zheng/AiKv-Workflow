@@ -74,7 +74,7 @@ Step 4  删除 aidb-oldmain、aikv-oldmain、wiqun-db、wiqun-kv、wiqun-factory
 | **4** | 写文档   | 按 module 模板成文; 更新 INDEX ✅; 消化源侧旧文档; PROGRESS ✅                                                             | 正文 + ISSUES 引用 (若有) | **正文草稿** → 确认后落盘与收尾      |
 
 
-**步 2 注意**: 「设计偏离 / 可能 bug」不阻塞文档. 确认的问题写入 `ISSUES.md`; module 内 **一行引用** (见模板).
+**步 2 注意**: 「设计偏离 / 可能 bug」不阻塞文档. 确认的问题写入 **对应仓库** `aidb/ISSUES.md` 或 `aikv/ISSUES.md`; module 内 **一行引用** (见模板).
 
 **步 4 末尾 (行政)**: 已消化旧文档从源仓库删除或移入 `backup/archive/`; 不在 aidb/aikv 留迁移记录.
 
@@ -91,8 +91,8 @@ Step 4  删除 aidb-oldmain、aikv-oldmain、wiqun-db、wiqun-kv、wiqun-factory
 
 #### 待核实与 ISSUES
 
-- 详情: `backup/ISSUES.md` (过程文档, 不进 aidb/aikv)
-- module 正文: **「待核实」** 小节至多一行/条, 格式: `见 ISSUES.md#ISSUE-NNN — 简述`
+- 详情: **`aidb/ISSUES.md`** / **`aikv/ISSUES.md`** (各仓库根目录, 按产品分开管理)
+- module 正文: **「待核实」** 小节至多一行/条, 格式: `见 ISSUES.md#ISSUE-NNN — 简述` (相对该仓库根目录)
 - 不在 module 内展开排查过程; 修 bug 另开开发任务, 不混入文档整理
 
 #### 旧文档查阅顺序 (步 2)
@@ -131,6 +131,7 @@ Step 4  删除 aidb-oldmain、aikv-oldmain、wiqun-db、wiqun-kv、wiqun-factory
 
 ```shell
 aidb/
+├── archive/                      # 文档整理会话等归档 (可选; 如 Export Chat)
 ├── docs/                         # 开发文档 (modules 为主)
 │   ├── modules/                  # 按 src 域划分的模块文档
 │   │   ├── backup.md             # BackupManager, 恢复流程
@@ -147,6 +148,7 @@ aidb/
 ├── CONTRIBUTING.md               # 贡献与 CI 流程
 ├── DEPLOYMENT.md                 # 部署与运行
 ├── DESIGN.md                     # 设计决策 (modules 完成后总审)
+├── ISSUES.md                     # 待核实 / 可能 bug (module 一行引用)
 └── README.md                     # 项目入口
 ```
 
@@ -157,6 +159,7 @@ aidb/
 
 ```shell
 aikv/
+├── archive/                      # 文档整理会话等归档 (可选)
 ├── docs/                         # 开发文档 (modules 为主)
 │   ├── modules/                  # 按 src 域划分的模块文档
 │   │   ├── cluster.md            # Cluster 协议, MOVED/ASK, CLUSTER 子命令
@@ -175,6 +178,7 @@ aikv/
 ├── CONTRIBUTING.md               # 贡献与 CI 流程
 ├── DEPLOYMENT.md                 # 部署与运行
 ├── DESIGN.md                     # 设计决策 (modules 完成后总审)
+├── ISSUES.md                     # 待核实 / 可能 bug (module 一行引用)
 └── README.md                     # 项目入口
 ```
 
@@ -205,7 +209,7 @@ AiKv-Workflow/backup/
 ├── design.md                     # 本整理方案
 ├── SESSION-PROMPT.md             # 新对话开场提示词模板
 ├── INDEX.md                      # 旧文档参考索引
-├── ISSUES.md                     # 待核实 / 可能 bug (module 一行引用)
+├── ISSUES.md                     # 已迁至 aidb/aikv 各仓库 (本文件为跳转说明)
 ├── PROGRESS.md                   # 章节进度
 └── README.md                     # database 仓库分支一览
 ```
@@ -274,7 +278,7 @@ aidb / aikv 根目录 README、ARCHITECTURE、DESIGN 等已移入 `backup/{aidb,
 - **description 含 WHEN**: 第三人称 + `Use when …`, 便于任何工具做路由
 - **Instructions > 散文**: 「常见任务」用步骤列表, 不写长原理 (原理放阶段 2 `DESIGN.md`)
 - **Progressive disclosure**: 单章 >400 行时, 拆 `docs/modules/<domain>-reference.md`, 主文件链过去
-- **过程不进 module**: 旧文档/oldmain 对比、ISSUES 详情仅在 backup/
+- **过程不进 module**: 旧文档/oldmain 对比仅在 backup/; ISSUES 详情在 **各仓库** `ISSUES.md`
 
 **`name` 约定**: `{repo}-{domain}` — 如 `aidb-engine`, `aikv-storage` (小写, 连字符; 与官方 name 规则一致).
 
@@ -468,7 +472,7 @@ flowchart LR
 
 对比发生在 **每章流程步 2–3**, 不单独产出迁移文档:
 
-- 步 2: 旧文档与当前实现是否一致; 设计偏离记入 ISSUES
+- 步 2: 旧文档与当前实现是否一致; 设计偏离记入对应仓库 `ISSUES.md`
 - 步 3: oldmain 模块级对照; 核心章 (engine / engine-storage / cluster / storage) 加深至关键文件逐段
 - 步 4: 差异与原因写入 module 正文或阶段 2 的 DESIGN; 不另建 module-map
 

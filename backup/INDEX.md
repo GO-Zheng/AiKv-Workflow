@@ -2,7 +2,7 @@
 
 > 记录「完善新文档时参考过哪些旧文档、如何处理」.  
 > 过程文档, 位于 `AiKv-Workflow/backup/`, 不进入 aidb / aikv.  
-> 待核实 / 可能 bug 详情见 [ISSUES.md](ISSUES.md); module 内一行引用即可.
+> 待核实 / 可能 bug 详情见各仓库 [`aidb/ISSUES.md`](../../aidb/ISSUES.md)、[`aikv/ISSUES.md`](../../aikv/ISSUES.md); module 内一行引用即可.
 
 **图例**: 处理 = `已删源` | `已归档` | `无有效内容跳过`
 
@@ -12,7 +12,7 @@
 
 | 新文档章节 | 状态 | 参考的旧文档 | 处理 | 备注 |
 |------------|------|--------------|------|------|
-| `docs/modules/engine.md` | 待开始 | | | `engine/{wal,memtable,db}` |
+| `docs/modules/engine.md` | ✅ | backup/aidb/ARCHITECTURE.md, DESIGN.md; WiQunTools 01-wal, 02-memtable, 04-db-engine, 08-snapshot | 已写 aidb/docs/modules/engine.md | ISSUE-001/002 |
 | `docs/modules/engine-storage.md` | 待开始 | | | `engine/{sstable,compaction,filter,cache,checkpoint}` |
 | `docs/modules/cluster.md` | 待开始 | | | `cluster/*` |
 | `docs/modules/backup.md` | 待开始 | | | `backup/*` |

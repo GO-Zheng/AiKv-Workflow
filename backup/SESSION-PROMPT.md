@@ -43,9 +43,9 @@
 - **确认门控**: 步 0→1→2→3→4, 每步先讨论, 我确认后再下一步
 - **步 4**: 先出 Module Skill 正文 **草稿**, 我确认后再写入 aidb/aikv、更新 INDEX/PROGRESS
 - **Module Skill 基础模板**: frontmatter `name` + `description` (含 `Use when`); 见 `design.md`
-- **过程只进 backup/**: INDEX、ISSUES; aidb/aikv 不写迁移历史
+- **过程只进 backup/**: INDEX; aidb/aikv 不写迁移历史
 - **旧文档顺序**: `backup/{aidb,aikv}/` → `*-oldmain` → WiQunTools 查漏 → wiqun-*
-- **待核实**: module 一行引用; 详情 `ISSUES.md`
+- **待核实**: module 一行引用; 详情写入 **当前仓库** 根目录 `ISSUES.md` (`aidb/ISSUES.md` 或 `aikv/ISSUES.md`)
 - **步 4 落盘前**: 对照 create-skill Summary Checklist 自检 (见 `design.md`)
 
 ### 本次不要
@@ -68,7 +68,7 @@
 |------|------|----------------|
 | 0 | 定范围 | 本章 `src/` 路径 + 入口文件列表 + 边界 (不覆盖哪些 module) |
 | 1 | 读新代码 | 职责要点、代码地图表、主流程 bullet; 必要时 test 命令 |
-| 2 | 查旧文档 | 参考过的旧文档路径 + 仍有效/过时/偏离/待核实 分类; 拟写 ISSUES |
+| 2 | 查旧文档 | 参考过的旧文档路径 + 仍有效/过时/偏离/待核实 分类; 拟写对应仓库 `ISSUES.md` |
 | 3 | 对比旧代码 | 模块级差异 (核心章可加关键文件逐段); 文档应如何表述的建议 |
 | 4 | 写文档 | **Module Skill 正文草稿** → 确认后落盘 + INDEX ✅ + 消化旧文档 + PROGRESS ✅ |
 
@@ -80,7 +80,7 @@
 
 1. 更新 `PROGRESS.md` (状态 / 完成日期 / 若未完成则 `🔄 续: 步 N`)
 2. 更新 `INDEX.md` 本章行
-3. 若有新疑点, 更新 `ISSUES.md`
+3. 若有新疑点, 更新 **当前仓库** `ISSUES.md` (aidb 或 aikv)
 4. 输出 **「下一会话开场」** — 已填好的开场模板 (复制即用)
 5. **不要 commit**, 除非用户明确要求
 
@@ -147,4 +147,4 @@
 | [design.md](design.md) | 总规程、基础模板、章节顺序 |
 | [PROGRESS.md](PROGRESS.md) | 步号与 ✅ 状态 |
 | [INDEX.md](INDEX.md) | 旧文档参考与处理 |
-| [ISSUES.md](ISSUES.md) | 待核实详情 |
+| [aidb/ISSUES.md](../../aidb/ISSUES.md) · [aikv/ISSUES.md](../../aikv/ISSUES.md) | 待核实详情 (各仓库) |

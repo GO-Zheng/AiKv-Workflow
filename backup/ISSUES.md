@@ -1,42 +1,12 @@
-# 文档整理 — 待核实与问题跟踪
+# ISSUES 已迁至各产品仓库
 
-> 过程文档, 位于 `AiKv-Workflow/backup/`. **不进 aidb / aikv.**  
-> aidb/aikv 的 module 内仅 **一行引用** 本文件条目 (见 `design.md` 模板).
+待核实 / 可能 bug 详情 **不再** 集中在本文件, 请改用:
 
-**图例**: 状态 = `open` | `confirmed-bug` | `doc-only` | `closed`
+| 仓库 | 文件 |
+|------|------|
+| **aidb** | [`aidb/ISSUES.md`](../../aidb/ISSUES.md) |
+| **aikv** | [`aikv/ISSUES.md`](../../aikv/ISSUES.md) |
 
----
+module 内引用格式不变: `见 ISSUES.md#ISSUE-NNN — 简述` (相对各仓库根目录).
 
-## 如何使用
-
-1. 每章流程 **步 2–3** 发现设计偏离、实现疑点、oldmain 行为差异时, 在此新增条目.
-2. 在对应 module 的 **「待核实」** 小节写: `见 ISSUES.md#ISSUE-NNN — 一句话`
-3. 文档整理 **不阻塞** 于修复; 确认要修的 bug 另开开发任务.
-4. 关闭条目时更新状态, 必要时回写 module 删除或改写引用.
-
-整理流程中新增 ISSUES 条目, 须在 **步 2–3 确认门控** 内与你讨论后再写入.
-
----
-
-## 条目模板 (复制后填写)
-
-```markdown
-### ISSUE-NNN: 标题
-
-- **状态**: open
-- **发现于**: PROGRESS 步 N / 章节 `aidb/docs/modules/xxx.md`
-- **相关 src**: `path/to/file.rs`
-- **旧文档**: `aidb-oldmain/docs/...` (可选)
-- **oldmain 代码**: `aidb-oldmain/src/...` (可选)
-- **现象**: 当前实现 vs 旧设计/旧代码 的差异
-- **影响**: 文档应如何描述 / 是否可能是 bug
-- **下一步**: 待核实 | 需写测试 | 需开 issue 修代码
-```
-
----
-
-## 条目列表
-
-<!-- 按 ISSUE-NNN 倒序追加 -->
-
-(暂无)
+整理规程见 [design.md](design.md)「待核实与 ISSUES」.
