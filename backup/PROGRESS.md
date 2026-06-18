@@ -2,7 +2,7 @@
 
 > 过程文档, 位于 `AiKv-Workflow/backup/`. aidb / aikv 仓库内不维护此表.
 
-**当前阶段**: 阶段 1 — modules (步 3/12 待开始)
+**当前阶段**: 阶段 1 ✅ 完成 — 可进入阶段 2a (aidb 汇总)
 
 **新会话提示词**: 见 [SESSION-PROMPT.md](SESSION-PROMPT.md) (每篇 module 开新对话时复制填空).
 
@@ -36,16 +36,16 @@
 |----|------|------|----------|------|----------|
 | 1 | aidb | `docs/modules/engine.md` | wal, memtable, db | ✅ 完成 | 2026-06-17 |
 | 2 | aidb | `docs/modules/engine-storage.md` | sstable, compaction, filter, cache, checkpoint | ✅ 完成 | 2026-06-17 |
-| 3 | aikv | `docs/modules/protocol.md` | protocol/* | ⬜ 待开始 | |
-| 4 | aikv | `docs/modules/server.md` | server/* | ⬜ 待开始 | |
-| 5 | aidb | `docs/modules/cluster.md` | cluster/* | ⬜ 待开始 | |
-| 6 | aikv | `docs/modules/storage.md` | storage/* | ⬜ 待开始 | |
-| 7 | aikv | `docs/modules/commands-core.md` | string~router | ⬜ 待开始 | |
-| 8 | aikv | `docs/modules/commands-extended.md` | json~server cmd | ⬜ 待开始 | |
-| 9 | aidb | `docs/modules/backup.md` | backup/* | ⬜ 待开始 | |
-| 10 | aidb | `docs/modules/observability.md` | metrics, monitoring | ⬜ 待开始 | |
-| 11 | aikv | `docs/modules/cluster.md` | cluster/* | ⬜ 待开始 | |
-| 12 | aikv | `docs/modules/observability.md` | slowlog, metrics, info | ⬜ 待开始 | |
+| 3 | aikv | `docs/modules/protocol.md` | protocol/* | ✅ 完成 | 2026-06-18 |
+| 4 | aikv | `docs/modules/server.md` | server/* | ✅ 完成 | 2026-06-18 |
+| 5 | aidb | `docs/modules/cluster.md` | cluster/* | ✅ 完成 | 2026-06-18 |
+| 6 | aikv | `docs/modules/storage.md` | storage/* | ✅ 完成 | 2026-06-18 |
+| 7 | aikv | `docs/modules/commands-core.md` | string~router | ✅ 完成 | 2026-06-18 |
+| 8 | aikv | `docs/modules/commands-extended.md` | json~server cmd | ✅ 完成 | 2026-06-18 |
+| 9 | aidb | `docs/modules/backup.md` | backup/* | ✅ 完成 | 2026-06-18 |
+| 10 | aidb | `docs/modules/observability.md` | metrics, monitoring | ✅ 完成 | 2026-06-18 |
+| 11 | aikv | `docs/modules/cluster.md` | cluster/* | ✅ 完成 | 2026-06-18 |
+| 12 | aikv | `docs/modules/observability.md` | slowlog, metrics, info | ✅ 完成 | 2026-06-18 |
 
 状态: ⬜ 待开始 | 🔄 进行中 | ✅ 完成
 
@@ -81,7 +81,7 @@
 
 ## Step 3: 验收
 
-- [ ] 阶段 1: 12 篇 modules 全部 ✅
+- [x] 阶段 1: 12 篇 modules 全部 ✅
 - [ ] 阶段 2: aidb / aikv 根文档与 `docs/README.md` 全部 ✅
 - [ ] 主观测试: 仅凭新文档可定位功能代码
 
