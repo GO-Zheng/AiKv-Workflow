@@ -49,12 +49,13 @@
 | `docs/modules/commands-extended.md` | ✅ | backup/aikv README,CHANGELOG,DESIGN; oldmain `01-commands`, `05-lua-scripting`, `src/command/{json,script,server,key}`; WiQunTools 03/04/05/06 (+08 分界); wiqun-kv `src/command` 查漏 | 已写 aikv/docs/modules/commands-extended.md | ISSUE-005~012 |
 | `docs/modules/cluster.md` | ✅ | backup/aikv {README,ARCHITECTURE,CHANGELOG,announce plan}; WiQunTools 07-cluster-protocol; oldmain 03-cluster + api/02-cluster (过时段); wiqun-kv cluster (查漏) | 已写 aikv/docs/modules/cluster.md | ISSUE-013/014/016 open; 015/017–019 doc-only; 加深 router/commands/forward/init_cluster |
 | `docs/modules/observability.md` | ✅ | backup/aikv superpowers spec + CHANGELOG/DEPLOYMENT; WiQunTools 08; wiqun-factory MONITORING (查漏); oldmain observability/* (过时) | spec 已归档 | ISSUE-020~023; observability-reference.md |
-| `ARCHITECTURE.md` (总审) | 待开始 | `backup/aikv/ARCHITECTURE.md` | 已移出 aikv | modules 完成后定稿 |
-| `DESIGN.md` (总审) | 待开始 | `backup/aikv/DESIGN.md` | 已移出 aikv | modules 完成后定稿 |
-| `README.md` | 待开始 | `backup/aikv/README.md` | 已移出 aikv | 最后修订入口 |
-| `DEPLOYMENT.md` | 待开始 | `backup/aikv/DEPLOYMENT.md` | 已移出 aikv | |
-| `CHANGELOG.md` | 待开始 | `backup/aikv/CHANGELOG.md` | 已移出 aikv | 保留历史条目, 按需续写 |
-| `CONTRIBUTING.md` | 待开始 | `backup/aikv/CONTRIBUTING.md` | 已移出 aikv | |
+| `ARCHITECTURE.md` (总审) | ✅ | `backup/aikv/{ARCHITECTURE,README,DESIGN}.md`; oldmain `docs/development/architecture/01-overview.md` (概念); `03-cluster` 运维跳过; `04-storage` 已归档; WiQunTools wiqun-kv-inventory 查漏; wiqun-kv 与 backup 重复跳过 | 已写 `aikv/ARCHITECTURE.md` | 模块级汇总; 含 AiDb 边界; ISSUES 根文档两行 |
+| `DESIGN.md` (总审) | ✅ | `backup/aikv/DESIGN.md`; oldmain `01-overview`, `05-lua-scripting`; WiQunTools 01–08 §设计决策; wiqun-kv 与 backup 重复跳过 | 已写 `aikv/DESIGN.md` | 模块级; 无新 ISSUE; ISSUE-001/002/013–016/019/020–023 根文档一行 |
+| `README.md` (入口) | ✅ | `backup/aikv/README.md` (主); oldmain `README.md` + `docs/guide/` (查漏); WiQunTools/wiqun-kv 跳过 | 已写 `aikv/README.md` | 模块级; 弃 mermaid/过时 CLI/aikv-tool/Milestone; ISSUES 根文档一行 |
+| `DEPLOYMENT.md` (汇总) | ✅ | `backup/aikv/DEPLOYMENT.md` (主, CLI 过时); oldmain `guide/02-deployment`, `01-quick-start`, `architecture/03-cluster` (概念/过时); wiqun-factory `MONITORING.md` (运维); wiqun-kv 跳过 | 已写 `aikv/DEPLOYMENT.md` | 模块级; CLI/env 以 `main.rs`; 链 `aidb/DEPLOYMENT.md`; ISSUE-020~022 根文档一行 |
+| `CONTRIBUTING.md` | ✅ | backup/aikv/CONTRIBUTING; oldmain CONTRIBUTING + ci.yml (过时跳过); wiqun-kv (重复跳过) | 已写 `aikv/CONTRIBUTING.md` | 删覆盖率/CLI/过时树; 完整测试矩阵与现 CI |
+| `CHANGELOG.md` | ✅ | `backup/aikv/CHANGELOG.md`; wiqun-kv (重复跳过) | 已写 `aikv/CHANGELOG.md` | 保留 0.0.1–0.10.5; [Unreleased] 空 |
+| `docs/README.md` (导航) | ✅ | `backup/aikv/README.md` §设计文档; `oldmain/docs/index.md` + README §文档 (分组查漏); aidb 步 18 范本; WiQunTools/wiqun-kv **跳过** | 已写 `aikv/docs/README.md` | 纯链接 hub; 7 modules WHEN; A1/B1/C1/D1/E1 |
 
 ### aikv 旧文档来源速查
 
