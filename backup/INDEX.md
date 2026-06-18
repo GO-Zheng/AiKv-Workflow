@@ -17,12 +17,13 @@
 | `docs/modules/cluster.md` | ✅ | backup/aidb DESIGN,README,CONTRIBUTING; WiQunTools 09–12; oldmain REDIS_CLUSTER_COMPATIBILITY (概念); oldmain examples/cluster/README (反例) | 已写 aidb/docs/modules/cluster.md | ISSUE-005 open; 006–010 doc-only |
 | `docs/modules/backup.md` | ✅ | backup/aidb {ARCHITECTURE,DESIGN,DEPLOYMENT,CHANGELOG,CONTRIBUTING}; WiQunTools 13 §1; oldmain src/backup + ADMIN_TOOL (过时跳过) | 已写 aidb/docs/modules/backup.md | ISSUE-011~013 doc-only |
 | `docs/modules/observability.md` | ✅ | backup/aidb/docs/observability.md; DEPLOYMENT §; oldmain monitoring/* + MONITORING_GUIDE (过时) | 已写 aidb/docs/modules/observability.md | ISSUE-014~018 doc-only |
-| `ARCHITECTURE.md` (总审) | 待开始 | `backup/aidb/ARCHITECTURE.md` | 已移出 aidb | modules 完成后定稿 |
-| `DESIGN.md` (总审) | 待开始 | `backup/aidb/DESIGN.md` | 已移出 aidb | modules 完成后定稿 |
-| `README.md` | 待开始 | `backup/aidb/README.md` | 已移出 aidb | 最后修订入口 |
-| `DEPLOYMENT.md` | 待开始 | `backup/aidb/DEPLOYMENT.md` | 已移出 aidb | |
-| `CHANGELOG.md` | 待开始 | `backup/aidb/CHANGELOG.md` | 已移出 aidb | 保留历史条目, 按需续写 |
-| `CONTRIBUTING.md` | 待开始 | `backup/aidb/CONTRIBUTING.md` | 已移出 aidb | |
+| `ARCHITECTURE.md` (总审) | ✅ | `backup/aidb/ARCHITECTURE.md`; oldmain `docs/ARCHITECTURE.md`, `MULTI_RAFT_ARCHITECTURE.md`; WiQunTools roadmap 查漏; wiqun-db 与 backup 重复跳过 | 已写 `aidb/ARCHITECTURE.md` | 模块级汇总; ISSUE-014 根文档一行 |
+| `DESIGN.md` (总审) | ✅ | `backup/aidb/DESIGN.md`; `oldmain/DESIGN_DECISIONS.md` (原则); `oldmain/ARCHITECTURE.md` §5; CHANGELOG/superpowers (stall/subcompaction); WiQunTools 09–13 查漏 | 已写 `aidb/DESIGN.md` | 模块级; 无新 ISSUE; ISSUE-001/005/014 根文档一行 |
+| `README.md` (入口) | ✅ | `backup/aidb/README.md` (主); oldmain `README.md` (查漏, 过时); WiQunTools/wiqun-db 跳过 | 已写 `aidb/README.md` | 模块级; ISSUE-014 一行; 弃 Milestone/:9191/v0.13 |
+| `DEPLOYMENT.md` (汇总) | ✅ | `backup/aidb/DEPLOYMENT.md` (主, 多处过时); oldmain `BACKUP_RECOVERY`/`PERFORMANCE_TUNING` (查漏); wiqun-factory `MONITORING` (边界); oldmain FOOLPROOF/USER_GUIDE/monitoring 跳过; wiqun-db 重复跳过; oldmain `monitoring/`/`aidb-admin` 模块级对照 | 已写 `aidb/DEPLOYMENT.md` | 模块级; ISSUE-014/012 根文档一行 |
+| `CONTRIBUTING.md` | ✅ | backup/aidb/CONTRIBUTING; oldmain CONTRIBUTING/CICD/DEVELOPMENT (跳过); wiqun-db (acceptance 过时) | 已写 `aidb/CONTRIBUTING.md` | 删覆盖率/WiQunTools; 补测试矩阵与 cluster 入口 |
+| `CHANGELOG.md` | ✅ | `backup/aidb/CHANGELOG.md` | 已写 `aidb/CHANGELOG.md` | 保留 0.0.1–0.14.10; [Unreleased] 空 |
+| `docs/README.md` (导航) | ✅ | `backup/aidb/README.md` §设计文档; oldmain `INDEX.md` + `DOCUMENT_STRUCTURE.md` (分组查漏); aikv-oldmain `docs/index.md` (形态参考); WiQunTools/wiqun-db 跳过 | 已写 `aidb/docs/README.md` | 纯链接 hub; modules WHEN; A1 无 development.md; C1 README hub 链 |
 
 ### aidb 旧文档来源速查
 

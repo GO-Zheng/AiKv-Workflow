@@ -2,7 +2,7 @@
 
 > 过程文档, 位于 `AiKv-Workflow/backup/`. aidb / aikv 仓库内不维护此表.
 
-**当前阶段**: 阶段 1 ✅ 完成 — 可进入阶段 2a (aidb 汇总)
+**当前阶段**: 阶段 2a ✅ 完成 — 可进入阶段 2b (aikv 汇总, 步 19+)
 
 **新会话提示词**: 见 [SESSION-PROMPT.md](SESSION-PROMPT.md) (每篇 module 开新对话时复制填空).
 
@@ -21,9 +21,9 @@
 - [x] 用户确认每章流程 (0–4) 与 ISSUES 约定
 - [x] 用户确认 Module Skill 内容格式 (路径不变, 正文按 Skill 标准, 日后仅迁位置)
 - [x] aidb/aikv 旧文档移入 `backup/{aidb,aikv}/`
-- [ ] aidb: 新建根目录文档 (README, ARCHITECTURE, DESIGN, DEPLOYMENT, CHANGELOG, CONTRIBUTING) — 可先占位
-- [ ] aidb: `docs/README.md`, `docs/development.md`
-- [ ] aidb: `docs/modules/` — engine, engine-storage, cluster, backup, observability (5 篇)
+- [x] aidb: 新建根目录文档 (README, ARCHITECTURE, DESIGN, DEPLOYMENT, CHANGELOG, CONTRIBUTING) — 可先占位
+- [x] aidb: `docs/README.md` (hub); `docs/development.md` 未建 (hub 链 DEPLOYMENT + CONTRIBUTING)
+- [x] aidb: `docs/modules/` — engine, engine-storage, cluster, backup, observability (5 篇)
 - [ ] aikv: 新建根目录文档 (同上) — 可先占位
 - [ ] aikv: `docs/README.md`, `docs/development.md`
 - [ ] aikv: `docs/modules/` — protocol, server, storage, commands-core, commands-extended, cluster, observability (7 篇)
@@ -55,14 +55,14 @@
 
 | 步 | 章节 | 状态 | 完成日期 |
 |----|------|------|----------|
-| 13 | `ARCHITECTURE.md` | ⬜ 待开始 | |
-| 14 | `DESIGN.md` | ⬜ 待开始 | |
-| 15 | `DEPLOYMENT.md` | ⬜ 待开始 | |
-| 16 | `README.md` | ⬜ 待开始 | |
-| 17 | `CONTRIBUTING.md` / `CHANGELOG.md` | ⬜ 待开始 | |
-| 18 | `docs/README.md` (导航) | ⬜ 待开始 | |
+| 13 | `ARCHITECTURE.md` | ✅ 完成 | 2026-06-18 |
+| 14 | `DESIGN.md` | ✅ 完成 | 2026-06-18 |
+| 15 | `DEPLOYMENT.md` | ✅ 完成 | 2026-06-18 |
+| 16 | `README.md` | ✅ 完成 | 2026-06-18 |
+| 17 | `CONTRIBUTING.md` / `CHANGELOG.md` | ✅ 完成 | 2026-06-18 |
+| 18 | `docs/README.md` (导航) | ✅ 完成 | 2026-06-18 |
 
-`docs/development.md` 可在 Step 0 占位后任意步 1 前完善.
+`docs/development.md`: 未单独创建; hub 链 DEPLOYMENT + CONTRIBUTING (步 18 A1).
 
 ---
 
@@ -82,7 +82,8 @@
 ## Step 3: 验收
 
 - [x] 阶段 1: 12 篇 modules 全部 ✅
-- [ ] 阶段 2: aidb / aikv 根文档与 `docs/README.md` 全部 ✅
+- [x] 阶段 2a: aidb 根文档与 `docs/README.md` 全部 ✅
+- [ ] 阶段 2b: aikv 根文档与 `docs/README.md` 全部 ✅
 - [ ] 主观测试: 仅凭新文档可定位功能代码
 
 ---
