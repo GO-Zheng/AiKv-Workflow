@@ -9,4 +9,6 @@
 
 module 内引用格式不变: `见 ISSUES.md#ISSUE-NNN — 简述` (相对各仓库根目录).
 
+开发优先级与推荐顺序见 [TODO.md](TODO.md).
+
 整理规程见 [design.md](design.md)「待核实与 ISSUES」.
