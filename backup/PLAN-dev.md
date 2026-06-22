@@ -4,7 +4,7 @@
 > 架构细节见文末 **[monitor 定案](#aifactory-monitor-定案)**、**[testviz 定案](#aifactory-testviz-定案)**.
 
 **状态**: v1 实施计划 (2026-06-16)  
-**下一步**: 确认本计划 → 按线路开分支、小步 PR
+**下一步**: **A3 · ISSUE-014** ✅ → **ISSUE-004** ✅ → A3 P2 按需 (003/009/010 …) 或并行 **B2-v0** / **C1**
 
 **相关**:
 
@@ -119,14 +119,14 @@ flowchart TB
 | **A0** | 准备       | 确认 P0 范围; doc-only 关闭策略                                             | [x] |
 | **A1** | **P0**   | aidb **001+002+005** ✅; aikv **002** ✅ | [x] |
 | **A2** | **P1**   | aikv **001/006/012/013/016** ✅ (P1 序 5–9 全部关闭) | [x] |
-| **A3** | **P2**   | 按产品需求选做 (003, 004, 009 …)                                           | [ ] |
-| **A4** | doc-only | 批量 `closed (doc-only)`                                              | [ ] |
+| **A3** | **P2**   | **014** ✅; **004** ✅ (doc-only); 按需 003/009/010 … | [ ] |
+| **A4** | doc-only | 批量 `closed (doc-only)`                                              | [x] |
 
 
 ### 推荐第一条开发线 (不变)
 
 ```text
-aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) ✅ → 014 (可选) / A4 doc-only 清扫
+aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) ✅ → A4 doc-only ✅ → 014 ✅ → 004 ✅ → P2 按需
 ```
 
 ### 与 monitor 交叉
@@ -234,8 +234,8 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 
 ### 按需 (阶段 4)
 
-- [ ] **A3** P2 ISSUES  
-- [ ] **A4** doc-only 清扫  
+- [ ] **A3** P2 ISSUES (014 ✅; 004 ✅ doc-only; 003/009/010 按需)
+- [x] **A4** doc-only 清扫 (aikv 007/008/011/015/017–019/021–023)
 - [ ] **C3** Profiles + 可观测 ISSUES 收尾  
 - [ ] **B1.4** CI 慢测矩阵
 
@@ -348,6 +348,9 @@ testviz/
 
 | 版本        | 日期         | 说明                                                            |
 | --------- | ---------- | ------------------------------------------------------------- |
+| v1.11     | 2026-06-22 | **A3 ISSUE-004**: doc-only — MSETNX 不实现; 移除 cluster_route dead `msetnx` |
+| v1.10     | 2026-06-22 | **A3 ISSUE-014**: 移除 GossipState dead code; NODES link-state ← MetaRaft |
+| v1.9      | 2026-06-22 | **A4 doc-only**: aikv **007/008/011/015/017–019/021–023** closed (module 已覆盖) |
 | v1.8      | 2026-06-22 | **A2 P1**: aikv **ISSUE-012** closed (EVAL KeyLock 30s 锁等待超时) |
 | v1.7      | 2026-06-22 | **A2 P1**: aikv **ISSUE-001** closed (MGET wrong-type → Redis 7 per-key nil, 双引擎统一) |
 | v1.6      | 2026-06-22 | **A2 P1**: aikv **ISSUE-016** closed doc-only (CLUSTER RESET 明确 ERR + 排障文档) |

@@ -36,7 +36,7 @@
 | 3 | aidb | ISSUE-005 | 数据 Group apply 仍逐 entry 写 last_applied | **closed** | `cluster/storage/apply.rs` |
 | 4 | aikv | ISSUE-002 | AiDbEngine::open 固定 `Options::for_testing()` | **closed** | `storage/aidb.rs`, `storage/aidb_options.rs` |
 
-**起步**: ~~P0~~ ✅; ~~A2 P1 (序 5–9)~~ ✅ → **下一 (线路 A)**: **A4 doc-only 批量 close** (见 TODO §doc-only) 或 **A3 · ISSUE-014** (GossipState / CLUSTER NODES, 集群域); 阶段 2 可并行 **B2-v0** / **C1**.
+**起步**: ~~P0~~ ✅; ~~A2 P1 (序 5–9)~~ ✅; ~~A4 doc-only~~ ✅; ~~A3 ISSUE-014~~ ✅; ~~A3 ISSUE-004~~ ✅ → **下一 (线路 A)**: A3 P2 (003/009/010 …) 或阶段 2 并行 **B2-v0** / **C1**.
 
 ---
 
@@ -57,10 +57,10 @@
 | 仓库 | ID | 标题 |
 |------|-----|------|
 | aikv | ISSUE-003 | GETRANGE/SETRANGE 未实现 |
-| aikv | ISSUE-004 | cluster_route 预留 MSETNX 未注册 |
+| aikv | ISSUE-004 | cluster_route 预留 MSETNX 未注册 | **closed** (doc-only) |
 | aikv | ISSUE-009 | Lua redis.call JSON.MGET 未实现 |
 | aikv | ISSUE-010 | MIGRATE 无 AUTH2 |
-| aikv | ISSUE-014 | GossipState 未接入 CLUSTER NODES |
+| aikv | ISSUE-014 | GossipState 未接入 CLUSTER NODES | **closed** |
 | aikv | ISSUE-017 | CLUSTER REPLICATE 仅本地元数据 |
 | aikv | ISSUE-018 | CLUSTER FAILOVER 仅 FORCE/TAKEOVER |
 | aikv | ISSUE-019 | SET-CONFIG-EPOCH / COUNT-FAILURE-REPORTS stub |
@@ -73,21 +73,19 @@
 |------|-----|------|----------|
 | aikv | ISSUE-020 | `blocked_clients` 无写入点 | open |
 | aikv | ISSUE-005 | BlockingRegistry evict_expired 无 caller | open |
-| aikv | ISSUE-021 | refresh_runtime_metrics 仅 monitoring tick | doc-only |
-| aikv | ISSUE-022 | metrics refresh 15s vs spec 1s | doc-only |
-| aikv | ISSUE-023 | Slowlog 默认 100ms vs Redis 10ms | doc-only |
+| aikv | ISSUE-021 | refresh_runtime_metrics 仅 monitoring tick | **closed** (doc-only) |
+| aikv | ISSUE-022 | metrics refresh 15s vs spec 1s | **closed** (doc-only) |
+| aikv | ISSUE-023 | Slowlog 默认 100ms vs Redis 10ms | **closed** (doc-only) |
 
 aidb **ISSUE-006–018** 多为 **closed/doc-only**; 除 P0 的 **005** 外无 open 代码债.
 
 ---
 
-## doc-only 批量 (aikv, 可不写代码)
+## doc-only 批量 (aikv) — ✅ 2026-06-22
 
-以下文档已覆盖或 intentional; 有空可批量 `closed (doc-only)`:
+已 `closed (doc-only)`: ISSUE-007, 008, 011, 015, 017–019, 021–023.
 
-ISSUE-007, 008, 011, 015, 017–019 (部分 P2 已列), 021–023.
-
-aikv ISSUE-015 (METARAFT 子命令移除) — doc-only, 链 aidb cluster.
+仍 open / 未扫: P2 代码债 003/009/010; P3 open 005/020.
 
 ---
 
@@ -115,6 +113,9 @@ aikv ISSUE-015 (METARAFT 子命令移除) — doc-only, 链 aidb cluster.
 
 | 日期 | 说明 |
 |------|------|
+| 2026-06-22 | **A3 ISSUE-004** closed doc-only (MSETNX 不实现; 移除 cluster_route dead branch); 下一 A3 P2 或 B2-v0/C1 |
+| 2026-06-22 | **A3 ISSUE-014** closed (移除 GossipState; NODES link-state); 下一 A3 P2 或 B2-v0/C1 |
+| 2026-06-22 | **A4 doc-only**: aikv 007/008/011/015/017–019/021–023 closed; 下一 A3 ISSUE-014 或 P2 |
 | 2026-06-22 | **A2 P1 全部关闭** (序 5–9); 下一: A4 doc-only 或 A3 ISSUE-014 |
 | 2026-06-22 | aikv ISSUE-012 closed (EVAL KeyLock 30s 锁等待超时); A2 P1 序 9 完成 |
 | 2026-06-22 | aikv ISSUE-001 closed (MGET Redis 7 wrong-type → nil, 双引擎统一); 下一 P1: 012 |
