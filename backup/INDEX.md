@@ -14,7 +14,7 @@
 |------------|------|--------------|------|------|
 | `docs/modules/engine.md` | ✅ | backup/aidb/ARCHITECTURE.md, DESIGN.md; WiQunTools 01-wal, 02-memtable, 04-db-engine, 08-snapshot | 已写 aidb/docs/modules/engine.md | ISSUE-001/002 **closed** |
 | `docs/modules/engine-storage.md` | ✅ | backup/aidb/ARCHITECTURE,DESIGN + superpowers specs; WiQunTools 03–07, 13 §checkpoint; oldmain src 对照 | 已写 aidb/docs/modules/engine-storage.md | ISSUE-003/004 closed (doc-only) |
-| `docs/modules/cluster.md` | ✅ | backup/aidb DESIGN,README,CONTRIBUTING; WiQunTools 09–12; oldmain REDIS_CLUSTER_COMPATIBILITY (概念); oldmain examples/cluster/README (反例) | 已写 aidb/docs/modules/cluster.md | ISSUE-005 open; 006–010 doc-only |
+| `docs/modules/cluster.md` | ✅ | backup/aidb DESIGN,README,CONTRIBUTING; WiQunTools 09–12; oldmain REDIS_CLUSTER_COMPATIBILITY (概念); oldmain examples/cluster/README (反例) | 已写 aidb/docs/modules/cluster.md | ISSUE-005 closed; 006–010 doc-only |
 | `docs/modules/backup.md` | ✅ | backup/aidb {ARCHITECTURE,DESIGN,DEPLOYMENT,CHANGELOG,CONTRIBUTING}; WiQunTools 13 §1; oldmain src/backup + ADMIN_TOOL (过时跳过) | 已写 aidb/docs/modules/backup.md | ISSUE-011~013 doc-only |
 | `docs/modules/observability.md` | ✅ | backup/aidb/docs/observability.md; DEPLOYMENT §; oldmain monitoring/* + MONITORING_GUIDE (过时) | 已写 aidb/docs/modules/observability.md | ISSUE-014~018 doc-only |
 | `ARCHITECTURE.md` (总审) | ✅ | `backup/aidb/ARCHITECTURE.md`; oldmain `docs/ARCHITECTURE.md`, `MULTI_RAFT_ARCHITECTURE.md`; WiQunTools roadmap 查漏; wiqun-db 与 backup 重复跳过 | 已写 `aidb/ARCHITECTURE.md` | 模块级汇总; ISSUE-014 根文档一行 |

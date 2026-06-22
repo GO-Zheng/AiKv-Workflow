@@ -33,10 +33,10 @@
 |----|------|-----|------|------|----------|
 | 1 | aidb | ISSUE-001 | WriteBatch 可能跨 WAL 文件 | **closed** | `engine/db/inner.rs`, `engine/wal/manager.rs` |
 | 2 | aidb | ISSUE-002 | 大 WriteBatch 与 max_wal_size 轮转交互 | **closed** (同 001) | 同上 |
-| 3 | aidb | ISSUE-005 | 数据 Group apply 仍逐 entry 写 last_applied | open | `cluster/storage/apply.rs` |
+| 3 | aidb | ISSUE-005 | 数据 Group apply 仍逐 entry 写 last_applied | **closed** | `cluster/storage/apply.rs` |
 | 4 | aikv | ISSUE-002 | AiDbEngine::open 固定 `Options::for_testing()` | **closed** | `storage/aidb.rs`, `storage/aidb_options.rs` |
 
-**起步**: ~~aidb 001 + 002~~ ✅; ~~aikv 002~~ ✅ → **下一: aidb 005** cluster apply.
+**起步**: ~~aidb 001 + 002~~ ✅; ~~aikv 002~~ ✅; ~~aidb 005~~ ✅ → **下一: A0 确认 ISSUES 批次** 或 **A2 P1**.
 
 ---
 
