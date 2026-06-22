@@ -36,7 +36,7 @@
 | 3 | aidb | ISSUE-005 | 数据 Group apply 仍逐 entry 写 last_applied | **closed** | `cluster/storage/apply.rs` |
 | 4 | aikv | ISSUE-002 | AiDbEngine::open 固定 `Options::for_testing()` | **closed** | `storage/aidb.rs`, `storage/aidb_options.rs` |
 
-**起步**: ~~P0~~ ✅; ~~A2 P1 (序 5–9)~~ ✅; ~~A4 doc-only~~ ✅; ~~A3 ISSUE-014~~ ✅; ~~A3 ISSUE-004~~ ✅; ~~A3 ISSUE-003~~ ✅ → **下一 (线路 A)**: A3 P2 (009/010 …) 或阶段 2 并行 **B2-v0** / **C1**.
+**起步**: ~~P0~~ ✅; ~~A2 P1 (序 5–9)~~ ✅; ~~A4 doc-only~~ ✅; ~~A3 ISSUE-014~~ ✅; ~~A3 ISSUE-004~~ ✅; ~~A3 ISSUE-003~~ ✅; ~~A3 ISSUE-009~~ ✅ → **下一 (线路 A)**: A3 P2 (010 …) 或阶段 2 并行 **B2-v0** / **C1**.
 
 ---
 
@@ -58,7 +58,7 @@
 |------|-----|------|
 | aikv | ISSUE-003 | GETRANGE/SETRANGE 未实现 | **closed** |
 | aikv | ISSUE-004 | cluster_route 预留 MSETNX 未注册 | **closed** (doc-only) |
-| aikv | ISSUE-009 | Lua redis.call JSON.MGET 未实现 |
+| aikv | ISSUE-009 | Lua redis.call JSON.MGET 未实现 | **closed** |
 | aikv | ISSUE-010 | MIGRATE 无 AUTH2 |
 | aikv | ISSUE-014 | GossipState 未接入 CLUSTER NODES | **closed** |
 | aikv | ISSUE-017 | CLUSTER REPLICATE 仅本地元数据 |
@@ -85,7 +85,7 @@ aidb **ISSUE-006–018** 多为 **closed/doc-only**; 除 P0 的 **005** 外无 o
 
 已 `closed (doc-only)`: ISSUE-007, 008, 011, 015, 017–019, 021–023.
 
-仍 open / 未扫: P2 代码债 009/010; P3 open 005/020.
+仍 open / 未扫: P2 代码债 010; P3 open 005/020.
 
 ---
 
@@ -113,7 +113,7 @@ aidb **ISSUE-006–018** 多为 **closed/doc-only**; 除 P0 的 **005** 外无 o
 
 | 日期 | 说明 |
 |------|------|
-| 2026-06-22 | **A3 ISSUE-003** closed (GETRANGE/SETRANGE 恢复); 下一 A3 P2 或 B2-v0/C1 |
+| 2026-06-22 | **A3 ISSUE-009** closed (JSON.MGET 顶层 + Lua); 下一 A3 P2 010 或 B2-v0/C1 |
 | 2026-06-22 | **A3 ISSUE-004** closed doc-only (MSETNX 不实现; 移除 cluster_route dead branch); 下一 A3 P2 或 B2-v0/C1 |
 | 2026-06-22 | **A3 ISSUE-014** closed (移除 GossipState; NODES link-state); 下一 A3 P2 或 B2-v0/C1 |
 | 2026-06-22 | **A4 doc-only**: aikv 007/008/011/015/017–019/021–023 closed; 下一 A3 ISSUE-014 或 P2 |
