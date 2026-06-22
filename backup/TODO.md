@@ -1,6 +1,7 @@
 # ISSUES 开发优先级
 
-> 过程文档, 位于 `AiKv-Workflow/backup/`. 条目详情在各产品仓库 `ISSUES.md`; 本文只记录 **处理顺序与起步建议**.
+> 过程文档, 位于 `AiKv-Workflow/backup/`. 条目详情在各产品仓库 `ISSUES.md`; 本文只记录 **处理顺序与起步建议**.  
+> **总计划**: 见 [PLAN-dev.md](PLAN-dev.md) (**v1 实施计划** — 线路 A ISSUES / B 测试 / C monitor).
 
 **详情源**:
 
@@ -114,4 +115,5 @@ aikv ISSUE-015 (METARAFT 子命令移除) — doc-only, 链 aidb cluster.
 
 | 日期 | 说明 |
 |------|------|
+| 2026-06-16 | 对齐 PLAN-dev v1 三线路引用 |
 | 2026-06-18 | 初版: 文档整理 Step 3 验收后 ISSUES 开发优先级 |

@@ -2,9 +2,9 @@
 
 > 过程文档, 位于 `AiKv-Workflow/backup/`. aidb / aikv 仓库内不维护此表.
 
-**当前阶段**: 文档整理 ✅ — Step 3 主观测试待用户自验; Step 4 旧仓保留 (不执行)
+**当前阶段**: 文档整理 ✅ — 后续开发见 [PLAN-dev.md](PLAN-dev.md) (**v1 实施计划**)
 
-**新会话提示词**: 见 [SESSION-PROMPT.md](SESSION-PROMPT.md) (每篇 module 开新对话时复制填空).
+**新会话提示词**: 文档整理见 [SESSION-PROMPT.md](SESSION-PROMPT.md); **开发实施**见 [PLAN-SESSION-PROMPT.md](PLAN-SESSION-PROMPT.md).
 
 **写作顺序 (已确认)**:
 
