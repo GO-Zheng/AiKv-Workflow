@@ -36,7 +36,7 @@
 | 3 | aidb | ISSUE-005 | 数据 Group apply 仍逐 entry 写 last_applied | **closed** | `cluster/storage/apply.rs` |
 | 4 | aikv | ISSUE-002 | AiDbEngine::open 固定 `Options::for_testing()` | **closed** | `storage/aidb.rs`, `storage/aidb_options.rs` |
 
-**起步**: ~~aidb 001 + 002~~ ✅; ~~aikv 002~~ ✅; ~~aidb 005~~ ✅; ~~A0~~ ✅; ~~aikv 006~~ ✅ → **下一: A2 P1 · aikv 001 或 013**.
+**起步**: ~~P0~~ ✅; ~~A2 P1 (序 5–9)~~ ✅ → **下一 (线路 A)**: **A4 doc-only 批量 close** (见 TODO §doc-only) 或 **A3 · ISSUE-014** (GossipState / CLUSTER NODES, 集群域); 阶段 2 可并行 **B2-v0** / **C1**.
 
 ---
 
@@ -44,11 +44,11 @@
 
 | 序 | 仓库 | ID | 标题 | 备注 |
 |----|------|-----|------|------|
-| 5 | aikv | ISSUE-001 | MemoryEngine mget 对非 String 静默 None | memory vs aidb 语义不一致 |
+| 5 | aikv | ISSUE-001 | MemoryEngine mget 对非 String 静默 None | **closed** |
 | 6 | aikv | ISSUE-006 | MIGRATE KEYS 忽略 COPY | **closed** |
-| 7 | aikv | ISSUE-013 | CLUSTER INFO 恒 `cluster_state:ok` | 排障可能误判 |
-| 8 | aikv | ISSUE-016 | CLUSTER RESET 未实现 | 运维链断 |
-| 9 | aikv | ISSUE-012 | EVAL KeyLock 无超时 | 同 key 死锁风险 |
+| 7 | aikv | ISSUE-013 | CLUSTER INFO 恒 `cluster_state:ok` | **closed** |
+| 8 | aikv | ISSUE-016 | CLUSTER RESET 未实现 | **closed** (doc-only) |
+| 9 | aikv | ISSUE-012 | EVAL KeyLock 无超时 | **closed** |
 
 ---
 
@@ -115,7 +115,11 @@ aikv ISSUE-015 (METARAFT 子命令移除) — doc-only, 链 aidb cluster.
 
 | 日期 | 说明 |
 |------|------|
-| 2026-06-22 | aikv ISSUE-006 closed (MIGRATE KEYS + COPY); 下一 P1: 001 或 013 |
+| 2026-06-22 | **A2 P1 全部关闭** (序 5–9); 下一: A4 doc-only 或 A3 ISSUE-014 |
+| 2026-06-22 | aikv ISSUE-012 closed (EVAL KeyLock 30s 锁等待超时); A2 P1 序 9 完成 |
+| 2026-06-22 | aikv ISSUE-001 closed (MGET Redis 7 wrong-type → nil, 双引擎统一); 下一 P1: 012 |
+| 2026-06-22 | aikv ISSUE-016 closed doc-only (CLUSTER RESET ERR + 排障); 下一 P1: 001 或 012 |
+| 2026-06-22 | aikv ISSUE-013 closed (CLUSTER INFO cluster_state fail); 下一 P1: 001 或 016 |
 | 2026-06-22 | aidb ISSUE-001/002 closed; B1.2 WAL 回归测模板; 下一 P0: aikv 002 或 aidb 005 |
 | 2026-06-16 | 对齐 PLAN-dev v1 三线路引用 |
 | 2026-06-18 | 初版: 文档整理 Step 3 验收后 ISSUES 开发优先级 |
