@@ -2,7 +2,7 @@
 
 > 过程文档, 位于 `AiKv-Workflow/backup/`. aidb / aikv 仓库内不维护此表.
 
-**当前阶段**: 阶段 2b ✅ 完成 — 可进入 Step 3 全仓验收
+**当前阶段**: 文档整理 ✅ — Step 3 主观测试待用户自验; Step 4 旧仓保留 (不执行)
 
 **新会话提示词**: 见 [SESSION-PROMPT.md](SESSION-PROMPT.md) (每篇 module 开新对话时复制填空).
 
@@ -86,16 +86,18 @@
 - [x] 阶段 1: 12 篇 modules 全部 ✅
 - [x] 阶段 2a: aidb 根文档与 `docs/README.md` 全部 ✅
 - [x] 阶段 2b: aikv 根文档与 `docs/README.md` 全部 ✅
-- [ ] 主观测试: 仅凭新文档可定位功能代码
+- [ ] 主观测试: 仅凭新文档可定位功能代码 (用户自验后勾选)
 
 ---
 
 ## Step 4: 清理旧仓库
 
-- [ ] 删除 aidb-oldmain
-- [ ] 删除 aikv-oldmain
-- [ ] 删除 wiqun-db
-- [ ] 删除 wiqun-kv
-- [ ] 删除 wiqun-factory
-- [ ] 删除 WiQunTools
-- [ ] (可选) 清理 `backup/archive/`
+> **2026-06-18 用户决定**: 保留旧/工具仓库作只读参考, **不执行删除**. 日常开发以 aidb/aikv 新文档为准.
+
+- [x] ~~删除 aidb-oldmain~~ — 保留
+- [x] ~~删除 aikv-oldmain~~ — 保留
+- [x] ~~删除 wiqun-db~~ — 保留
+- [x] ~~删除 wiqun-kv~~ — 保留
+- [x] ~~删除 wiqun-factory~~ — 保留
+- [x] ~~删除 WiQunTools~~ — 保留
+- [x] ~~(可选) 清理 `backup/archive/`~~ — 保留
