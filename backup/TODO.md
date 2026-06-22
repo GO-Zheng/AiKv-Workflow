@@ -36,7 +36,7 @@
 | 3 | aidb | ISSUE-005 | 数据 Group apply 仍逐 entry 写 last_applied | **closed** | `cluster/storage/apply.rs` |
 | 4 | aikv | ISSUE-002 | AiDbEngine::open 固定 `Options::for_testing()` | **closed** | `storage/aidb.rs`, `storage/aidb_options.rs` |
 
-**起步**: ~~aidb 001 + 002~~ ✅; ~~aikv 002~~ ✅; ~~aidb 005~~ ✅ → **下一: A0 确认 ISSUES 批次** 或 **A2 P1**.
+**起步**: ~~aidb 001 + 002~~ ✅; ~~aikv 002~~ ✅; ~~aidb 005~~ ✅; ~~A0~~ ✅; ~~aikv 006~~ ✅ → **下一: A2 P1 · aikv 001 或 013**.
 
 ---
 
@@ -45,7 +45,7 @@
 | 序 | 仓库 | ID | 标题 | 备注 |
 |----|------|-----|------|------|
 | 5 | aikv | ISSUE-001 | MemoryEngine mget 对非 String 静默 None | memory vs aidb 语义不一致 |
-| 6 | aikv | ISSUE-006 | MIGRATE KEYS 忽略 COPY | 批量路径像真 bug |
+| 6 | aikv | ISSUE-006 | MIGRATE KEYS 忽略 COPY | **closed** |
 | 7 | aikv | ISSUE-013 | CLUSTER INFO 恒 `cluster_state:ok` | 排障可能误判 |
 | 8 | aikv | ISSUE-016 | CLUSTER RESET 未实现 | 运维链断 |
 | 9 | aikv | ISSUE-012 | EVAL KeyLock 无超时 | 同 key 死锁风险 |
@@ -115,7 +115,7 @@ aikv ISSUE-015 (METARAFT 子命令移除) — doc-only, 链 aidb cluster.
 
 | 日期 | 说明 |
 |------|------|
-| 2026-06-22 | aikv ISSUE-002 closed; B1.3 生产 Options 集成测; 下一 P0: aidb 005 |
+| 2026-06-22 | aikv ISSUE-006 closed (MIGRATE KEYS + COPY); 下一 P1: 001 或 013 |
 | 2026-06-22 | aidb ISSUE-001/002 closed; B1.2 WAL 回归测模板; 下一 P0: aikv 002 或 aidb 005 |
 | 2026-06-16 | 对齐 PLAN-dev v1 三线路引用 |
 | 2026-06-18 | 初版: 文档整理 Step 3 验收后 ISSUES 开发优先级 |
