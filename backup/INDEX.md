@@ -12,7 +12,7 @@
 
 | 新文档章节 | 状态 | 参考的旧文档 | 处理 | 备注 |
 |------------|------|--------------|------|------|
-| `docs/modules/engine.md` | ✅ | backup/aidb/ARCHITECTURE.md, DESIGN.md; WiQunTools 01-wal, 02-memtable, 04-db-engine, 08-snapshot | 已写 aidb/docs/modules/engine.md | ISSUE-001/002 |
+| `docs/modules/engine.md` | ✅ | backup/aidb/ARCHITECTURE.md, DESIGN.md; WiQunTools 01-wal, 02-memtable, 04-db-engine, 08-snapshot | 已写 aidb/docs/modules/engine.md | ISSUE-001/002 **closed** |
 | `docs/modules/engine-storage.md` | ✅ | backup/aidb/ARCHITECTURE,DESIGN + superpowers specs; WiQunTools 03–07, 13 §checkpoint; oldmain src 对照 | 已写 aidb/docs/modules/engine-storage.md | ISSUE-003/004 closed (doc-only) |
 | `docs/modules/cluster.md` | ✅ | backup/aidb DESIGN,README,CONTRIBUTING; WiQunTools 09–12; oldmain REDIS_CLUSTER_COMPATIBILITY (概念); oldmain examples/cluster/README (反例) | 已写 aidb/docs/modules/cluster.md | ISSUE-005 open; 006–010 doc-only |
 | `docs/modules/backup.md` | ✅ | backup/aidb {ARCHITECTURE,DESIGN,DEPLOYMENT,CHANGELOG,CONTRIBUTING}; WiQunTools 13 §1; oldmain src/backup + ADMIN_TOOL (过时跳过) | 已写 aidb/docs/modules/backup.md | ISSUE-011~013 doc-only |
@@ -44,7 +44,7 @@
 |------------|------|--------------|------|------|
 | `docs/modules/protocol.md` | ✅ | backup/aikv ARCHITECTURE,DESIGN; WiQunTools 01-resp-tcp; aikv-oldmain src/protocol; wiqun-kv src/protocol | 已写 aikv/docs/modules/protocol.md | 默认 Resp3; 无 ISSUE |
 | `docs/modules/server.md` | ✅ | backup/aikv ARCHITECTURE,DESIGN,CHANGELOG; WiQunTools 01-resp-tcp; aikv-oldmain architecture/01-overview + src/server; wiqun-kv src/server (查漏) | 已写 aikv/docs/modules/server.md | listener/connection/config; observability 子模块见 observability.md |
-| `docs/modules/storage.md` | ✅ | backup/aikv ARCHITECTURE,DESIGN,CHANGELOG; WiQunTools 02-storage-commands, 06-persistence (查漏 05-lua); aikv-oldmain src/storage/*; wiqun-kv src/storage (查漏) | 已写 aikv/docs/modules/storage.md; oldmain 04-storage.md 已归档 | ISSUE-001/002 open; 加深章 types/memory/adapter/aidb/cluster_adapter |
+| `docs/modules/storage.md` | ✅ | backup/aikv ARCHITECTURE,DESIGN,CHANGELOG; WiQunTools 02-storage-commands, 06-persistence (查漏 05-lua); aikv-oldmain src/storage/*; wiqun-kv src/storage (查漏) | 已写 aikv/docs/modules/storage.md; oldmain 04-storage.md 已归档 | ISSUE-002 **closed**; ISSUE-001 open; 加深章 types/memory/adapter/aidb/cluster_adapter |
 | `docs/modules/commands-core.md` | ✅ | backup/aikv CHANGELOG,DESIGN; WiQunTools 02-storage-commands; aikv-oldmain 01-commands + src/command/mod.rs; wiqun-kv src/command (查漏) | 已写 aikv/docs/modules/commands-core.md | ISSUE-001 引用; ISSUE-003/004 open; oldmain CommandExecutor→Router |
 | `docs/modules/commands-extended.md` | ✅ | backup/aikv README,CHANGELOG,DESIGN; oldmain `01-commands`, `05-lua-scripting`, `src/command/{json,script,server,key}`; WiQunTools 03/04/05/06 (+08 分界); wiqun-kv `src/command` 查漏 | 已写 aikv/docs/modules/commands-extended.md | ISSUE-005~012 |
 | `docs/modules/cluster.md` | ✅ | backup/aikv {README,ARCHITECTURE,CHANGELOG,announce plan}; WiQunTools 07-cluster-protocol; oldmain 03-cluster + api/02-cluster (过时段); wiqun-kv cluster (查漏) | 已写 aikv/docs/modules/cluster.md | ISSUE-013/014/016 open; 015/017–019 doc-only; 加深 router/commands/forward/init_cluster |

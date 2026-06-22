@@ -29,14 +29,14 @@
 
 可能伤数据、恢复或生产配置; **建议第一条开发线**.
 
-| 序 | 仓库 | ID | 标题 | 相关 src |
-|----|------|-----|------|----------|
-| 1 | aidb | ISSUE-001 | WriteBatch 可能跨 WAL 文件 | `engine/db/inner.rs`, `engine/wal/manager.rs` |
-| 2 | aidb | ISSUE-002 | 大 WriteBatch 与 max_wal_size 轮转交互 | 同上 (与 001 同测) |
-| 3 | aidb | ISSUE-005 | 数据 Group apply 仍逐 entry 写 last_applied | `cluster/storage/apply.rs` |
-| 4 | aikv | ISSUE-002 | AiDbEngine::open 固定 `Options::for_testing()` | `storage/aidb.rs` |
+| 序 | 仓库 | ID | 标题 | 状态 | 相关 src |
+|----|------|-----|------|------|----------|
+| 1 | aidb | ISSUE-001 | WriteBatch 可能跨 WAL 文件 | **closed** | `engine/db/inner.rs`, `engine/wal/manager.rs` |
+| 2 | aidb | ISSUE-002 | 大 WriteBatch 与 max_wal_size 轮转交互 | **closed** (同 001) | 同上 |
+| 3 | aidb | ISSUE-005 | 数据 Group apply 仍逐 entry 写 last_applied | open | `cluster/storage/apply.rs` |
+| 4 | aikv | ISSUE-002 | AiDbEngine::open 固定 `Options::for_testing()` | **closed** | `storage/aidb.rs`, `storage/aidb_options.rs` |
 
-**起步**: aidb **001 + 002** 写 WAL 复现测试 → 修或不修 → closed; 再 aikv **002** 生产 Options.
+**起步**: ~~aidb 001 + 002~~ ✅; ~~aikv 002~~ ✅ → **下一: aidb 005** cluster apply.
 
 ---
 
@@ -95,7 +95,7 @@ aikv ISSUE-015 (METARAFT 子命令移除) — doc-only, 链 aidb cluster.
 
 ```text
 1. aidb: ISSUE-001 + 002  (WAL 测试 → 修/关)
-2. aikv: ISSUE-002        (生产 Options / CLI)
+2. aikv: ISSUE-002        (生产 Options / CLI)  ✅
 3. aikv: ISSUE-006        (MIGRATE COPY, 小 patch)
 4. 集群域: 013 / 016 / 014 (常跑 cluster 时再排)
 5. doc-only 扫一遍 → closed
@@ -115,5 +115,7 @@ aikv ISSUE-015 (METARAFT 子命令移除) — doc-only, 链 aidb cluster.
 
 | 日期 | 说明 |
 |------|------|
+| 2026-06-22 | aikv ISSUE-002 closed; B1.3 生产 Options 集成测; 下一 P0: aidb 005 |
+| 2026-06-22 | aidb ISSUE-001/002 closed; B1.2 WAL 回归测模板; 下一 P0: aikv 002 或 aidb 005 |
 | 2026-06-16 | 对齐 PLAN-dev v1 三线路引用 |
 | 2026-06-18 | 初版: 文档整理 Step 3 验收后 ISSUES 开发优先级 |
