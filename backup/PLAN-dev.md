@@ -4,7 +4,7 @@
 > 架构细节见文末 **[monitor 定案](#aifactory-monitor-定案)**、**[testviz 定案](#aifactory-testviz-定案)**.
 
 **状态**: v1 实施计划 (2026-06-16)  
-**下一步**: **A3 P2** ✅ → **A3 P3 (020)** 或并行 **B2-v0** / **C1**
+**下一步**: **A3 P3** ✅ → 并行 **B2-v0** / **C1**
 
 **相关**:
 
@@ -236,7 +236,7 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 
 - [x] **A3** P2 ISSUES (014 ✅; 004 ✅ doc-only; 003 ✅; 009 ✅; 010 ✅; 017–019 doc-only 已关)
 - [x] **A3** P3 ISSUE-005 (BlockingRegistry evict) ✅
-- [ ] **A3** P3 ISSUE-020 (`blocked_clients`) open
+- [x] **A3** P3 ISSUE-020 (`blocked_clients`) ✅
 - [x] **A4** doc-only 清扫 (aikv 007/008/011/015/017–019/021–023)
 - [ ] **C3** Profiles + 可观测 ISSUES 收尾  
 - [ ] **B1.4** CI 慢测矩阵
@@ -350,6 +350,7 @@ testviz/
 
 | 版本        | 日期         | 说明                                                            |
 | --------- | ---------- | ------------------------------------------------------------- |
+| v1.16     | 2026-06-23 | **A3 ISSUE-020**: `blocked_clients` 阻塞命令计数 (BlockedClientGuard) |
 | v1.15     | 2026-06-23 | **A3 ISSUE-005**: BlockingRegistry 后台 evict_expired (1s tick) |
 | v1.14     | 2026-06-22 | **A3 ISSUE-010**: MIGRATE AUTH2 (解析 + TCP AUTH user pass; KEYS 停止符) |
 | v1.13     | 2026-06-22 | **A3 ISSUE-009**: 实现 JSON.MGET (顶层 + Lua redis.call) |
