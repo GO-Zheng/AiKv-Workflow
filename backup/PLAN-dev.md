@@ -4,7 +4,7 @@
 > 架构细节见文末 **[monitor 定案](#aifactory-monitor-定案)**、**[testviz 定案](#aifactory-testviz-定案)**.
 
 **状态**: v1 实施计划 (2026-06-16)  
-**下一步**: **A3 P3** ✅ → 并行 **B2-v0** ✅ / **C1**
+**下一步**: **C1** ✅ (生产 112/113/115 已验收) → **C2** OTel metrics / 四信号关联
 
 **相关**:
 
@@ -180,11 +180,12 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 
 | 项    | 内容                                                                 | 状态  |
 | ---- | ------------------------------------------------------------------ | --- |
-| C1.1 | `AiFactory/monitor/` ← wiqun-factory; Promtail → **Alloy**         | [ ] |
-| C1.2 | **115**: Prometheus, Grafana, Loki, Tempo, Collector; Grafana 告警示例 | [ ] |
-| C1.3 | **112/113**: Alloy (log); 对齐 aikv 容器名 `*aikv`*                     | [ ] |
-| C1.4 | Dashboard: `wiqun_*` → `aikv_*` / `aidb_*`                         | [ ] |
-| C1.5 | **监控文档** (见 monitor 定案「监控文档」表)                                     | [ ] |
+| C1.1 | `AiFactory/monitor/` ← wiqun-factory; Promtail → **Alloy**         | [x] |
+| C1.2 | **115**: Prometheus, Grafana, Loki, Tempo, Collector; Grafana Unified Alerting (无预置规则) | [x] |
+| C1.3 | **112/113**: Alloy (log); 对齐 aikv 容器名 `*aikv*`                     | [x] |
+| C1.4 | Dashboard: `wiqun_*` → `aikv_*` / `aidb_*`                         | [x] |
+| C1.5 | **监控文档** (见 monitor 定案「监控文档」表)                                     | [x] |
+| C1.6 | 远程编排: `up-monitoring` / `up-alloy` / `up-worker`; targets 自动生成 (aikv/cadvisor/node) | [x] |
 
 
 ### C2 — aikv/aidb 代码 + 四信号关联
@@ -225,7 +226,7 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 
 - [x] **A2** P1 ISSUES (aikv 001/006/012/013/016 全部 closed)
 - [x] **B2-v0** testviz 最小可用  
-- [ ] **C1** monitor 栈 + 文档 (可与 A2 并行)
+- [x] **C1** monitor 栈 + 文档 (可与 A2 并行)
 
 ### 再次 (阶段 3)
 
@@ -350,6 +351,8 @@ testviz/
 
 | 版本        | 日期         | 说明                                                            |
 | --------- | ---------- | ------------------------------------------------------------- |
+| v1.19     | 2026-06-23 | **C1 收尾**: 生产 112/113/115 验收; `up-worker`/`up-monitoring` 远程编排; node-exporter File SD |
+| v1.18     | 2026-06-23 | **C1**: `AiFactory/monitor/` 栈迁移, Promtail→Alloy, dashboard `aikv_*`/`aidb_*`, 监控文档 |
 | v1.17     | 2026-06-23 | **B2-v0**: `AiFactory/testviz/` 扫描+跑测+SSE+Docs/Mermaid 最小可用 |
 | v1.16     | 2026-06-23 | **A3 ISSUE-020**: `blocked_clients` 阻塞命令计数 (BlockedClientGuard) |
 | v1.15     | 2026-06-23 | **A3 ISSUE-005**: BlockingRegistry 后台 evict_expired (1s tick) |
