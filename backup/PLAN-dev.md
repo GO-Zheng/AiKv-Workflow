@@ -4,7 +4,7 @@
 > 架构细节见文末 **[monitor 定案](#aifactory-monitor-定案)**、**[testviz 定案](#aifactory-testviz-定案)**.
 
 **状态**: v1 实施计划 (2026-06-16)  
-**下一步**: 按需 **C3** Profiles; 或 **B1.5+** 逐步将 shell E2E 迁为 pytest (非 retro 全量)
+**下一步**: 按需 **C3.3** ISSUE 告警对齐; 或 **B1.5+** 逐步将 shell E2E 迁为 pytest (非 retro 全量)
 
 **相关**:
 
@@ -206,8 +206,8 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 
 | 项    | 内容                                                             | 状态  |
 | ---- | -------------------------------------------------------------- | --- |
-| C3.1 | 115 **Pyroscope** + Grafana Profiles; Alloy **pyroscope.ebpf** | [ ] |
-| C3.2 | release **debug symbols** (火焰图可读)                              | [ ] |
+| C3.1 | 115 **Pyroscope** + Grafana Profiles; Alloy **pyroscope.ebpf** | [x] |
+| C3.2 | release **debug symbols** (火焰图可读)                              | [x] |
 | C3.3 | ISSUE-020 / 021–023 与告警、面板一致                                   | [ ] |
 
 
@@ -316,6 +316,7 @@ flowchart TB
     A["aikv"]
     AL["Grafana Alloy"]
     A -->|JSON| AL
+    AL -->|eBPF profiles| PY
   end
   subgraph M115["115"]
     OTEL["OTel Collector"]
@@ -323,11 +324,13 @@ flowchart TB
     GRAF["Grafana"]
     LOKI["Loki"]
     TEMPO["Tempo"]
+    PY["Pyroscope"]
     OTEL --> PROM
     OTEL --> TEMPO
     PROM --> GRAF
     LOKI --> GRAF
     TEMPO --> GRAF
+    PY --> GRAF
   end
   A -->|OTLP metrics+traces| OTEL
   AL --> LOKI
@@ -376,6 +379,7 @@ testviz/
 
 | 版本        | 日期         | 说明                                                            |
 | --------- | ---------- | ------------------------------------------------------------- |
+| v1.27     | 2026-06-23 | **C3.1 + C3.2**: 115 Pyroscope 2.0.4; Alloy pyroscope.ebpf; Grafana Profiles datasource + aikv-profiles dashboard; aikv release debug=1 |
 | v1.26     | 2026-06-23 | **B1.5**: aikv `e2e/` pytest 骨架 (conftest, lib, test_basic/test_ping); 新 E2E 优先 pytest; CI e2e job 追加 pytest |
 | v1.25     | 2026-06-23 | **B1.1 + B1.4**: CONTRIBUTING 回归测必带; `slow:`/`stress:` 标签; aidb `test-slow` CI; aikv `test-cluster` 补 `--test-threads=1` |
 | v1.24     | 2026-06-23 | **B2-v0.1**: testviz 全量 e2e shell + pytest 扫描; Tests 页展示 (索引 only) |
