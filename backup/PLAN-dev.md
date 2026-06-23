@@ -4,7 +4,7 @@
 > 架构细节见文末 **[monitor 定案](#aifactory-monitor-定案)**、**[testviz 定案](#aifactory-testviz-定案)**.
 
 **状态**: v1 实施计划 (2026-06-16)  
-**下一步**: **B2-v1** testviz (`@component` / Map↔Tests↔Docs); 或按需 **C3** Profiles
+**下一步**: **B2-v0.1** e2e/pytest 全量扫描 (可选); 或按需 **C3** Profiles
 
 **相关**:
 
@@ -164,7 +164,7 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 | ----------- | ------------------------------------------------------ | --- |
 | **B2-v0**   | `config.toml` 扫 aidb/aikv; 测试树; 单测运行+SSE; Docs+Mermaid | [x] |
 | **B2-v0.1** | 扫 `e2e/*.sh` / pytest; (可选) React Flow + component 筛测  | [ ] |
-| **B2-v1**   | `@component` / frontmatter 定稿; Map↔Tests↔Docs 深链接      | [ ] |
+| **B2-v1**   | `@component` / frontmatter 定稿; Map↔Tests↔Docs 深链接      | [x] |
 
 
 **技术栈**: Rust Axum 后端 + React/TS/Vite; 扫描驱动, 不手维护 Web 清单. 详见 [testviz 定案](#aifactory-testviz-定案).
@@ -232,7 +232,7 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 
 - [x] **C2** OTel metrics + 四信号关联  
 - [x] **C2.6** 移除 aikv scrape, OTLP-only metrics (生产 112/113/115 已验收)  
-- [ ] **B2-v1** testviz component / Map (与文档规范同步)
+- [x] **B2-v1** testviz component / Map (与文档规范同步)
 
 ### 按需 (阶段 4)
 
@@ -356,6 +356,17 @@ testviz/
 
 **链接约定 (草案)**: 文档 `component:`; 测试 `/// @component`; e2e `# @component`; 图节点 JSON — v1 与 B2-v1 定稿.
 
+**B2-v1 已定案**:
+
+| 来源 | 语法 | canonical ID |
+|------|------|----------------|
+| 文档 frontmatter | `name:` (兼容 `component:`) | `{repo}-{domain}` kebab-case |
+| Rust 集成测 | `//!` / `/// @component {id}` | entry 文件注解向下继承到 `#[path]` 子模块 |
+| e2e shell | `# @component {id}` (脚本前 20 行) | 仅索引, 不运行 |
+| Map 边 | frontmatter `depends_on: [id, …]` | 不解析 ARCHITECTURE Mermaid |
+
+深链接: `/map?c={id}`, `/tests?c={id}`, `/docs/{repo}/{path}`.
+
 ---
 
 ## 变更 log
@@ -363,6 +374,7 @@ testviz/
 
 | 版本        | 日期         | 说明                                                            |
 | --------- | ---------- | ------------------------------------------------------------- |
+| v1.23     | 2026-06-23 | **B2-v1**: testviz `@component` / frontmatter 扫描; Map (React Flow) + Tests/Docs 深链接; aikv/aidb module `depends_on` |
 | v1.22     | 2026-06-23 | **C2.6**: 移除 aikv Prometheus scrape; OTLP remote write 为唯一 metrics 源; `aikv_db_keys` OTel 补齐; Grafana `host_name`/`service_name` |
 | v1.21     | 2026-06-23 | **C2 生产验收**: 112/113/115 联调; OTLP metrics/traces/logs 关联; `up-monitoring` recreate otel-collector; C2.6 待做 |
 | v1.20     | 2026-06-23 | **C2**: OTel metrics OTLP + exemplars; log trace_id; Collector remote write; 四信号关联 (scrape 过渡保留) |
