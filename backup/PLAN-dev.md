@@ -4,7 +4,7 @@
 > 架构细节见文末 **[monitor 定案](#aifactory-monitor-定案)**、**[testviz 定案](#aifactory-testviz-定案)**.
 
 **状态**: v1 实施计划 (2026-06-16)  
-**下一步**: **A3 P3** ✅ → 并行 **B2-v0** / **C1**
+**下一步**: **A3 P3** ✅ → 并行 **B2-v0** ✅ / **C1**
 
 **相关**:
 
@@ -162,7 +162,7 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 
 | 阶段          | 内容                                                     | 状态  |
 | ----------- | ------------------------------------------------------ | --- |
-| **B2-v0**   | `config.toml` 扫 aidb/aikv; 测试树; 单测运行+SSE; Docs+Mermaid | [ ] |
+| **B2-v0**   | `config.toml` 扫 aidb/aikv; 测试树; 单测运行+SSE; Docs+Mermaid | [x] |
 | **B2-v0.1** | 扫 `e2e/*.sh` / pytest; (可选) React Flow + component 筛测  | [ ] |
 | **B2-v1**   | `@component` / frontmatter 定稿; Map↔Tests↔Docs 深链接      | [ ] |
 
@@ -224,7 +224,7 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 ### 其次 (阶段 2, 可并行)
 
 - [x] **A2** P1 ISSUES (aikv 001/006/012/013/016 全部 closed)
-- [ ] **B2-v0** testviz 最小可用  
+- [x] **B2-v0** testviz 最小可用  
 - [ ] **C1** monitor 栈 + 文档 (可与 A2 并行)
 
 ### 再次 (阶段 3)
@@ -350,6 +350,7 @@ testviz/
 
 | 版本        | 日期         | 说明                                                            |
 | --------- | ---------- | ------------------------------------------------------------- |
+| v1.17     | 2026-06-23 | **B2-v0**: `AiFactory/testviz/` 扫描+跑测+SSE+Docs/Mermaid 最小可用 |
 | v1.16     | 2026-06-23 | **A3 ISSUE-020**: `blocked_clients` 阻塞命令计数 (BlockedClientGuard) |
 | v1.15     | 2026-06-23 | **A3 ISSUE-005**: BlockingRegistry 后台 evict_expired (1s tick) |
 | v1.14     | 2026-06-22 | **A3 ISSUE-010**: MIGRATE AUTH2 (解析 + TCP AUTH user pass; KEYS 停止符) |

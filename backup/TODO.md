@@ -36,7 +36,7 @@
 | 3 | aidb | ISSUE-005 | 数据 Group apply 仍逐 entry 写 last_applied | **closed** | `cluster/storage/apply.rs` |
 | 4 | aikv | ISSUE-002 | AiDbEngine::open 固定 `Options::for_testing()` | **closed** | `storage/aidb.rs`, `storage/aidb_options.rs` |
 
-**起步**: ~~P0~~ ✅; ~~A2 P1 (序 5–9)~~ ✅; ~~A4 doc-only~~ ✅; ~~A3 P2 (014/004/003/009/010)~~ ✅; ~~A3 P3 (005/020)~~ ✅ → **下一 (线路 A)**: 阶段 2 并行 **B2-v0** / **C1**.
+**起步**: ~~P0~~ ✅; ~~A2 P1~~ ✅; ~~A4 doc-only~~ ✅; ~~A3 P2/P3~~ ✅; ~~B2-v0 testviz~~ ✅ → **下一**: 阶段 2 并行 **C1** monitor / (可选) **B2-v0.1**.
 
 ---
 
@@ -113,6 +113,7 @@ aidb **ISSUE-006–018** 多为 **closed/doc-only**; 除 P0 的 **005** 外无 o
 
 | 日期 | 说明 |
 |------|------|
+| 2026-06-23 | **B2-v0** testviz 最小可用 (`AiFactory/testviz/`); 下一 C1 / B2-v0.1 |
 | 2026-06-23 | **A3 ISSUE-020** closed (`blocked_clients` 阻塞计数); 线路 A P3 代码债已清; 下一 B2-v0/C1 |
 | 2026-06-23 | **A3 ISSUE-005** closed (BlockingRegistry 后台 evict); 下一 A3 P3 020 或 B2-v0/C1 |
 | 2026-06-22 | **A3 ISSUE-010** closed (MIGRATE AUTH2); 下一 A3 P2 017 或 B2-v0/C1 |
