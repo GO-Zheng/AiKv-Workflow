@@ -36,7 +36,7 @@
 | 3 | aidb | ISSUE-005 | 数据 Group apply 仍逐 entry 写 last_applied | **closed** | `cluster/storage/apply.rs` |
 | 4 | aikv | ISSUE-002 | AiDbEngine::open 固定 `Options::for_testing()` | **closed** | `storage/aidb.rs`, `storage/aidb_options.rs` |
 
-**起步**: ~~P0~~ ✅; ~~A2 P1 (序 5–9)~~ ✅; ~~A4 doc-only~~ ✅; ~~A3 P2 (014/004/003/009/010)~~ ✅ → **下一 (线路 A)**: A3 P3 (**005** / **020**) 或阶段 2 并行 **B2-v0** / **C1**.
+**起步**: ~~P0~~ ✅; ~~A2 P1 (序 5–9)~~ ✅; ~~A4 doc-only~~ ✅; ~~A3 P2 (014/004/003/009/010)~~ ✅; ~~A3 P3 ISSUE-005~~ ✅ → **下一 (线路 A)**: A3 P3 **020** 或阶段 2 并行 **B2-v0** / **C1**.
 
 ---
 
@@ -72,7 +72,7 @@
 | 仓库 | ID | 标题 | 当前状态 |
 |------|-----|------|----------|
 | aikv | ISSUE-020 | `blocked_clients` 无写入点 | open |
-| aikv | ISSUE-005 | BlockingRegistry evict_expired 无 caller | open |
+| aikv | ISSUE-005 | BlockingRegistry evict_expired 无 caller | **closed** |
 | aikv | ISSUE-021 | refresh_runtime_metrics 仅 monitoring tick | **closed** (doc-only) |
 | aikv | ISSUE-022 | metrics refresh 15s vs spec 1s | **closed** (doc-only) |
 | aikv | ISSUE-023 | Slowlog 默认 100ms vs Redis 10ms | **closed** (doc-only) |
@@ -85,7 +85,7 @@ aidb **ISSUE-006–018** 多为 **closed/doc-only**; 除 P0 的 **005** 外无 o
 
 已 `closed (doc-only)`: ISSUE-007, 008, 011, 015, 017–019, 021–023.
 
-仍 open: P3 **005** / **020** (A3 代码债); 017–019 已在 A4 doc-only 关闭.
+仍 open: P3 **020** (A3 代码债); 005 ✅ closed.
 
 ---
 
@@ -113,6 +113,7 @@ aidb **ISSUE-006–018** 多为 **closed/doc-only**; 除 P0 的 **005** 外无 o
 
 | 日期 | 说明 |
 |------|------|
+| 2026-06-23 | **A3 ISSUE-005** closed (BlockingRegistry 后台 evict); 下一 A3 P3 020 或 B2-v0/C1 |
 | 2026-06-22 | **A3 ISSUE-010** closed (MIGRATE AUTH2); 下一 A3 P2 017 或 B2-v0/C1 |
 | 2026-06-22 | **A3 ISSUE-009** closed (JSON.MGET 顶层 + Lua); 下一 A3 P2 010 或 B2-v0/C1 |
 | 2026-06-22 | **A3 ISSUE-004** closed doc-only (MSETNX 不实现; 移除 cluster_route dead branch); 下一 A3 P2 或 B2-v0/C1 |
