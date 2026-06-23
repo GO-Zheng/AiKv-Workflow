@@ -69,7 +69,7 @@
 | **B** | B2-v0.1 | `AiFactory/testviz/` e2e/pytest 全量索引 |
 | **B** | B2-v1 | `AiFactory/testviz/` Map + `@component` |
 | **B** | B1.1+B1.4 | ✅ CONTRIBUTING 回归测 + CI 慢测矩阵 |
-| **B** | B1.5 | E2E: 新用例优先 pytest |
+| **B** | B1.5 | ✅ E2E: 新用例优先 pytest |
 
 ---
 

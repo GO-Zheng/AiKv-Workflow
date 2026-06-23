@@ -4,7 +4,7 @@
 > 架构细节见文末 **[monitor 定案](#aifactory-monitor-定案)**、**[testviz 定案](#aifactory-testviz-定案)**.
 
 **状态**: v1 实施计划 (2026-06-16)  
-**下一步**: 按需 **C3** Profiles; 或 **B1.5** E2E pytest 迁移
+**下一步**: 按需 **C3** Profiles; 或 **B1.5+** 逐步将 shell E2E 迁为 pytest (非 retro 全量)
 
 **相关**:
 
@@ -152,7 +152,7 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 | B1.2 | aidb: ISSUE-001/002 **WAL 崩溃恢复** 测试模板     | [x]    |
 | B1.3 | aikv: ISSUE-002 **生产 Options** 集成测        | [x]    |
 | B1.4 | 慢测/stress **标签** + CI 矩阵                  | [x]    |
-| B1.5 | E2E: 保留 `aikv/e2e/*.sh`; **新用例优先 pytest** | [ ] 持续 |
+| B1.5 | E2E: 保留 `aikv/e2e/*.sh`; **新用例优先 pytest** | [x] |
 
 
 **分层** (已定): L0–L4; 组件测在 `tests/` 内; E2E 在 `aikv/e2e/`.
@@ -243,6 +243,7 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 - [x] **B2-v0.1** testviz e2e/pytest 全量索引  
 - [x] **B1.1** CONTRIBUTING 回归测规范  
 - [x] **B1.4** CI 慢测矩阵  
+- [x] **B1.5** E2E pytest 骨架 (conftest/lib + 示例; shell 保留; CI e2e job 追加 pytest)
 
 ---
 
@@ -375,6 +376,7 @@ testviz/
 
 | 版本        | 日期         | 说明                                                            |
 | --------- | ---------- | ------------------------------------------------------------- |
+| v1.26     | 2026-06-23 | **B1.5**: aikv `e2e/` pytest 骨架 (conftest, lib, test_basic/test_ping); 新 E2E 优先 pytest; CI e2e job 追加 pytest |
 | v1.25     | 2026-06-23 | **B1.1 + B1.4**: CONTRIBUTING 回归测必带; `slow:`/`stress:` 标签; aidb `test-slow` CI; aikv `test-cluster` 补 `--test-threads=1` |
 | v1.24     | 2026-06-23 | **B2-v0.1**: testviz 全量 e2e shell + pytest 扫描; Tests 页展示 (索引 only) |
 | v1.23     | 2026-06-23 | **B2-v1**: testviz `@component` / frontmatter 扫描; Map (React Flow) + Tests/Docs 深链接; aikv/aidb module `depends_on` |
