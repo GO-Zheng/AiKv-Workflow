@@ -4,7 +4,7 @@
 > 架构细节见文末 **[monitor 定案](#aifactory-monitor-定案)**、**[testviz 定案](#aifactory-testviz-定案)**.
 
 **状态**: v1 实施计划 (2026-06-16)  
-**下一步**: **C1** ✅ (生产 112/113/115 已验收) → **C2** OTel metrics / 四信号关联
+**下一步**: **C2** ✅ (生产 112/113/115 已验收) → **C2.6** 移除 scrape / 或 **B2-v1** testviz
 
 **相关**:
 
@@ -193,11 +193,11 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 
 | 项    | 内容                                                               | 状态  |
 | ---- | ---------------------------------------------------------------- | --- |
-| C2.1 | **OTel Metrics SDK + OTLP**; Collector → Prometheus remote write | [ ] |
-| C2.2 | 指标名/契约测与 `observability-reference` 一致; 过渡期 scrape 对照             | [ ] |
-| C2.3 | **Exemplars** (metrics↔traces)                                   | [ ] |
-| C2.4 | JSON log **trace_id/span_id**; Tempo↔Loki; 统一 resource/labels    | [ ] |
-| C2.5 | observability **契约测试**扩展                                         | [ ] |
+| C2.1 | **OTel Metrics SDK + OTLP**; Collector → Prometheus remote write | [x] |
+| C2.2 | 指标名/契约测与 `observability-reference` 一致; 过渡期 scrape 对照             | [x] |
+| C2.3 | **Exemplars** (metrics↔traces); 生产暂未观测到 exemplar 点 (代码已埋点) | [x] |
+| C2.4 | JSON log **trace_id/span_id**; Tempo↔Loki; 统一 resource/labels    | [x] |
+| C2.5 | observability **契约测试**扩展                                         | [x] |
 | C2.6 | 验收后弱化或移除 scrape `/metrics`                                       | [ ] |
 
 
@@ -230,7 +230,7 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 
 ### 再次 (阶段 3)
 
-- [ ] **C2** OTel metrics + 四信号关联  
+- [x] **C2** OTel metrics + 四信号关联  
 - [ ] **B2-v1** testviz component / Map (与文档规范同步)
 
 ### 按需 (阶段 4)
@@ -280,7 +280,18 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 
 ### 四信号关联 (C2 验收)
 
-logs↔traces (trace_id, Tempo↔Loki); metrics↔traces (exemplars); 统一 `service.name` / host / node_id; profiles 同 `service_name`.
+logs↔traces (trace_id, Tempo↔Loki); metrics↔traces (exemplars, 待生产确认); 统一 `service.name` / `host.name` / `node_id`; profiles 同 `service_name`.
+
+**生产验收** (2026-06-23, 112/113/115):
+
+| 项 | 结果 |
+| --- | --- |
+| Scrape 12 targets | ✅ UP (9191–9196 × 2 worker) |
+| OTLP metrics → Prom remote write | ✅ `service_name=aikv`, `host_name`, `node_id` |
+| Tempo traces | ✅ `service.name=aikv` |
+| Loki trace_id | ✅ JSON span 字段 + Alloy 提取 |
+| Exemplars | ⚠️ Prom 暂未查到 (C2.6 前可跟进) |
+| 双 series 过渡 | scrape + OTLP 并存 (C2.6 收敛) |
 
 ### 监控文档 (C1.5)
 
@@ -351,6 +362,8 @@ testviz/
 
 | 版本        | 日期         | 说明                                                            |
 | --------- | ---------- | ------------------------------------------------------------- |
+| v1.21     | 2026-06-23 | **C2 生产验收**: 112/113/115 联调; OTLP metrics/traces/logs 关联; `up-monitoring` recreate otel-collector; C2.6 待做 |
+| v1.20     | 2026-06-23 | **C2**: OTel metrics OTLP + exemplars; log trace_id; Collector remote write; 四信号关联 (scrape 过渡保留) |
 | v1.19     | 2026-06-23 | **C1 收尾**: 生产 112/113/115 验收; `up-worker`/`up-monitoring` 远程编排; node-exporter File SD |
 | v1.18     | 2026-06-23 | **C1**: `AiFactory/monitor/` 栈迁移, Promtail→Alloy, dashboard `aikv_*`/`aidb_*`, 监控文档 |
 | v1.17     | 2026-06-23 | **B2-v0**: `AiFactory/testviz/` 扫描+跑测+SSE+Docs/Mermaid 最小可用 |
