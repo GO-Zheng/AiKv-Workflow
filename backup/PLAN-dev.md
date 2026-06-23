@@ -4,7 +4,7 @@
 > 架构细节见文末 **[monitor 定案](#aifactory-monitor-定案)**、**[testviz 定案](#aifactory-testviz-定案)**.
 
 **状态**: v1 实施计划 (2026-06-16)  
-**下一步**: **C2.6** ✅ (OTLP-only metrics) → **B2-v1** testviz
+**下一步**: **B2-v1** testviz (`@component` / Map↔Tests↔Docs); 或按需 **C3** Profiles
 
 **相关**:
 
