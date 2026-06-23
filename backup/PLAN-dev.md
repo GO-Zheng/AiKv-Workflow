@@ -4,7 +4,7 @@
 > 架构细节见文末 **[monitor 定案](#aifactory-monitor-定案)**、**[testviz 定案](#aifactory-testviz-定案)**.
 
 **状态**: v1 实施计划 (2026-06-16)  
-**下一步**: **B1.1 + B1.4** 测试规范与 CI 慢测矩阵; 或按需 **C3** Profiles
+**下一步**: 按需 **C3** Profiles; 或 **B1.5** E2E pytest 迁移
 
 **相关**:
 
@@ -148,10 +148,10 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 
 | 项    | 内容                                        | 状态     |
 | ---- | ----------------------------------------- | ------ |
-| B1.1 | CONTRIBUTING: 新 bugfix **必带回归测**          | [ ]    |
+| B1.1 | CONTRIBUTING: 新 bugfix **必带回归测**          | [x]    |
 | B1.2 | aidb: ISSUE-001/002 **WAL 崩溃恢复** 测试模板     | [x]    |
 | B1.3 | aikv: ISSUE-002 **生产 Options** 集成测        | [x]    |
-| B1.4 | 慢测/stress **标签** + CI 矩阵 (待定)             | [ ]    |
+| B1.4 | 慢测/stress **标签** + CI 矩阵                  | [x]    |
 | B1.5 | E2E: 保留 `aikv/e2e/*.sh`; **新用例优先 pytest** | [ ] 持续 |
 
 
@@ -240,8 +240,9 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 - [x] **A3** P3 ISSUE-005 (BlockingRegistry evict) ✅
 - [x] **A3** P3 ISSUE-020 (`blocked_clients`) ✅
 - [x] **A4** doc-only 清扫 (aikv 007/008/011/015/017–019/021–023)
-- [ ] **C3** Profiles + 可观测 ISSUES 收尾  
-- [ ] **B1.4** CI 慢测矩阵
+- [x] **B2-v0.1** testviz e2e/pytest 全量索引  
+- [x] **B1.1** CONTRIBUTING 回归测规范  
+- [x] **B1.4** CI 慢测矩阵  
 
 ---
 
@@ -374,6 +375,8 @@ testviz/
 
 | 版本        | 日期         | 说明                                                            |
 | --------- | ---------- | ------------------------------------------------------------- |
+| v1.25     | 2026-06-23 | **B1.1 + B1.4**: CONTRIBUTING 回归测必带; `slow:`/`stress:` 标签; aidb `test-slow` CI; aikv `test-cluster` 补 `--test-threads=1` |
+| v1.24     | 2026-06-23 | **B2-v0.1**: testviz 全量 e2e shell + pytest 扫描; Tests 页展示 (索引 only) |
 | v1.23     | 2026-06-23 | **B2-v1**: testviz `@component` / frontmatter 扫描; Map (React Flow) + Tests/Docs 深链接; aikv/aidb module `depends_on` |
 | v1.22     | 2026-06-23 | **C2.6**: 移除 aikv Prometheus scrape; OTLP remote write 为唯一 metrics 源; `aikv_db_keys` OTel 补齐; Grafana `host_name`/`service_name` |
 | v1.21     | 2026-06-23 | **C2 生产验收**: 112/113/115 联调; OTLP metrics/traces/logs 关联; `up-monitoring` recreate otel-collector; C2.6 待做 |
