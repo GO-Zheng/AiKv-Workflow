@@ -64,8 +64,9 @@
 | **B** | B2-v0 | `AiFactory/testviz/` 扫描+跑测 |
 | **C** | C1 | `AiFactory/monitor/`, Alloy, 文档 |
 | **C** | C2 | aikv OTel metrics, exemplars, 关联 |
-| **C** | C2.6 | 移除 scrape `/metrics`, 收敛双 series |
+| **C** | C2.6 | ✅ 移除 scrape, OTLP-only metrics |
 | **C** | C3 | Pyroscope + eBPF profiles |
+| **B** | B2-v1 | `AiFactory/testviz/` Map + `@component` |
 
 ---
 

@@ -4,7 +4,7 @@
 > 架构细节见文末 **[monitor 定案](#aifactory-monitor-定案)**、**[testviz 定案](#aifactory-testviz-定案)**.
 
 **状态**: v1 实施计划 (2026-06-16)  
-**下一步**: **C2** ✅ (生产 112/113/115 已验收) → **C2.6** 移除 scrape / 或 **B2-v1** testviz
+**下一步**: **C2.6** ✅ (OTLP-only metrics) → **B2-v1** testviz
 
 **相关**:
 
@@ -198,7 +198,7 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 | C2.3 | **Exemplars** (metrics↔traces); 生产暂未观测到 exemplar 点 (代码已埋点) | [x] |
 | C2.4 | JSON log **trace_id/span_id**; Tempo↔Loki; 统一 resource/labels    | [x] |
 | C2.5 | observability **契约测试**扩展                                         | [x] |
-| C2.6 | 验收后弱化或移除 scrape `/metrics`                                       | [ ] |
+| C2.6 | 验收后弱化或移除 scrape `/metrics`                                       | [x] |
 
 
 ### C3 — 按需
@@ -231,6 +231,7 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 ### 再次 (阶段 3)
 
 - [x] **C2** OTel metrics + 四信号关联  
+- [x] **C2.6** 移除 aikv scrape, OTLP-only metrics (生产 112/113/115 已验收)  
 - [ ] **B2-v1** testviz component / Map (与文档规范同步)
 
 ### 按需 (阶段 4)
@@ -290,8 +291,8 @@ logs↔traces (trace_id, Tempo↔Loki); metrics↔traces (exemplars, 待生产�
 | OTLP metrics → Prom remote write | ✅ `service_name=aikv`, `host_name`, `node_id` |
 | Tempo traces | ✅ `service.name=aikv` |
 | Loki trace_id | ✅ JSON span 字段 + Alloy 提取 |
-| Exemplars | ⚠️ Prom 暂未查到 (C2.6 前可跟进) |
-| 双 series 过渡 | scrape + OTLP 并存 (C2.6 收敛) |
+| Exemplars | ⚠️ Prom 暂未查到 (可选跟进) |
+| Metrics 路径 | **OTLP-only** (C2.6: 已移除 aikv scrape) |
 
 ### 监控文档 (C1.5)
 
@@ -362,6 +363,7 @@ testviz/
 
 | 版本        | 日期         | 说明                                                            |
 | --------- | ---------- | ------------------------------------------------------------- |
+| v1.22     | 2026-06-23 | **C2.6**: 移除 aikv Prometheus scrape; OTLP remote write 为唯一 metrics 源; `aikv_db_keys` OTel 补齐; Grafana `host_name`/`service_name` |
 | v1.21     | 2026-06-23 | **C2 生产验收**: 112/113/115 联调; OTLP metrics/traces/logs 关联; `up-monitoring` recreate otel-collector; C2.6 待做 |
 | v1.20     | 2026-06-23 | **C2**: OTel metrics OTLP + exemplars; log trace_id; Collector remote write; 四信号关联 (scrape 过渡保留) |
 | v1.19     | 2026-06-23 | **C1 收尾**: 生产 112/113/115 验收; `up-worker`/`up-monitoring` 远程编排; node-exporter File SD |
