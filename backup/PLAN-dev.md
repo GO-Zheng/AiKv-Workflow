@@ -1,10 +1,10 @@
 # 后续开发计划 (v1 实施计划)
 
-> 过程文档, 位于 `AiKv-Workflow/backup/`. **未开始实施** — 范围与选型已定; 本文为三线路 **执行顺序 + checklist**.  
+> 过程文档, 位于 `AiKv-Workflow/backup/`. **v1 已全部完成** (2026-06-23) — 本文为三线路 **执行顺序 + checklist** 归档.  
 > 架构细节见文末 **[monitor 定案](#aifactory-monitor-定案)**、**[testviz 定案](#aifactory-testviz-定案)**.
 
-**状态**: v1 实施计划 (2026-06-16)  
-**下一步**: 按需 **C3.3** ISSUE 告警对齐; 或 **B1.5+** 逐步将 shell E2E 迁为 pytest (非 retro 全量)
+**状态**: ✅ **v1 已完成** (2026-06-16 定稿 → 2026-06-23 收尾)  
+**后续**: 原「按需」项见 **[延后至新计划](#延后至新计划-v1-范围外)**; 新计划另起文档
 
 **相关**:
 
@@ -69,7 +69,7 @@ flowchart TB
     direction TB
     C1["C1 栈与文档<br/>AiFactory/monitor · Alloy"]
     C2["C2 OTel metrics<br/>四信号关联"]
-    C3["C3 Profiles · 可观测 ISSUES"]
+    C3["C3 Profiles ✅"]
     C1 --> C2 --> C3
   end
 
@@ -95,7 +95,7 @@ flowchart TB
 | **2′** | **B2** | testviz v0 (扫描+跑测+Docs); v1 Map/关联 | B1; `@component` 可与文档一并定 |
 | **3** | **C1** | `AiFactory/monitor/` 部署, Alloy, dashboard, 监控文档 | AiFactory compose |
 | **3′** | **C2** | aikv/aidb OTel metrics OTLP; exemplars; log trace_id; 关联验收 | C1 + aikv `--features monitoring` |
-| **4** | **C3** | Pyroscope + Alloy eBPF (按需); ISSUE-020/021–023 与告警对齐 | C2 |
+| **4** | **C3** | Pyroscope + Alloy eBPF; release debug symbols | C2 | ✅ 已完成 |
 
 
 **并行建议**:
@@ -134,8 +134,8 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 
 | ISSUE                       | 处理线路                               |
 | --------------------------- | ---------------------------------- |
-| **020** blocked_clients     | **C2/C4** — 修写入或告警/面板标注            |
-| **021–023** refresh/slowlog | **C4** — 产品决策 + 文档                 |
+| **020** blocked_clients     | **A3/C2** — 计数已修 ✅; 告警/面板对齐 → [新计划](#延后至新计划-v1-范围外) |
+| **021–023** refresh/slowlog | **A4** doc-only 已关 ✅; 告警/面板 → [新计划](#延后至新计划-v1-范围外) |
 | **013** CLUSTER INFO        | **A2** — 集群运维; 与 monitor 面板无关但影响排障 |
 
 
@@ -201,14 +201,15 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 | C2.6 | 验收后弱化或移除 scrape `/metrics`                                       | [x] |
 
 
-### C3 — 按需
+### C3 — Profiles (v1 范围)
 
 
 | 项    | 内容                                                             | 状态  |
 | ---- | -------------------------------------------------------------- | --- |
 | C3.1 | 115 **Pyroscope** + Grafana Profiles; Alloy **pyroscope.ebpf** | [x] |
 | C3.2 | release **debug symbols** (火焰图可读)                              | [x] |
-| C3.3 | ISSUE-020 / 021–023 与告警、面板一致                                   | [ ] |
+
+> **v1 收尾**: C3.1/C3.2 已生产验收 (112/113/115). 原 C3.3 及下方「按需」项不在 v1 范围内, 见 [延后至新计划](#延后至新计划-v1-范围外).
 
 
 **拓扑**: 112/113 worker, 115 监控中心. **Traces + Metrics**: aikv OTLP → 115 Collector. **Logs**: JSON → Alloy → Loki. 详见 [monitor 定案](#aifactory-monitor-定案).
@@ -244,6 +245,20 @@ aidb 001+002+005 ✅ → aikv 002 ✅ → aikv 006 ✅ → P1 (001/012/013/016) 
 - [x] **B1.1** CONTRIBUTING 回归测规范  
 - [x] **B1.4** CI 慢测矩阵  
 - [x] **B1.5** E2E pytest 骨架 (conftest/lib + 示例; shell 保留; CI e2e job 追加 pytest)
+- [x] **C3.1–C3.2** Profiles + debug symbols (生产 112/113/115 已验收)
+
+---
+
+## 延后至新计划 (v1 范围外)
+
+> 以下原标为「按需」或可选跟进, **不阻塞 v1 完成**; 将在后续新计划中立项.
+
+| 项 | 原位置 | 说明 |
+| --- | --- | --- |
+| **C3.3** | 线路 C | ISSUE-020 / 021–023 与 Grafana **告警规则、面板** 对齐 (020 计数已在 A3/C2 修复) |
+| **B1.5+** | 线路 B | 逐步将既有 shell E2E **迁为 pytest** (非 retro 全量; v1 仅骨架 + 新用例优先 pytest) |
+| **Exemplars 生产确认** | C2.3 | 代码已埋点; Prom 暂未观测到 exemplar 点, 可选联调 |
+| **运维 polish** | — | 如 Alloy 排除 cadvisor profile、Tempo compare 性能调优等 |
 
 ---
 
@@ -293,7 +308,7 @@ logs↔traces (trace_id, Tempo↔Loki); metrics↔traces (exemplars, 待生产�
 | OTLP metrics → Prom remote write | ✅ `service_name=aikv`, `host_name`, `node_id` |
 | Tempo traces | ✅ `service.name=aikv` |
 | Loki trace_id | ✅ JSON span 字段 + Alloy 提取 |
-| Exemplars | ⚠️ Prom 暂未查到 (可选跟进) |
+| Exemplars | ⚠️ Prom 暂未查到 (v1 代码已埋点; 生产确认 → [新计划](#延后至新计划-v1-范围外)) |
 | Metrics 路径 | **OTLP-only** (C2.6: 已移除 aikv scrape) |
 
 ### 监控文档 (C1.5)
@@ -379,6 +394,7 @@ testviz/
 
 | 版本        | 日期         | 说明                                                            |
 | --------- | ---------- | ------------------------------------------------------------- |
+| v1.28     | 2026-06-23 | **v1 计划完结**: 标注 A/B/C 三线路已完成; C3.3 / B1.5+ / exemplars 等按需项移至「延后至新计划」 |
 | v1.27     | 2026-06-23 | **C3.1 + C3.2**: 115 Pyroscope 2.0.4; Alloy pyroscope.ebpf; Grafana Profiles datasource + aikv-profiles dashboard; aikv release debug=1 |
 | v1.26     | 2026-06-23 | **B1.5**: aikv `e2e/` pytest 骨架 (conftest, lib, test_basic/test_ping); 新 E2E 优先 pytest; CI e2e job 追加 pytest |
 | v1.25     | 2026-06-23 | **B1.1 + B1.4**: CONTRIBUTING 回归测必带; `slow:`/`stress:` 标签; aidb `test-slow` CI; aikv `test-cluster` 补 `--test-threads=1` |
